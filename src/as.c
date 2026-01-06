@@ -1,79 +1,9 @@
-#include "defs.h"
-#include <stdio.h>
-#include <ctype.h>
-#include <stdlib.h>
-
-#define MAX_LAB 128
-#define LAB_MAX 8
-#define MAX_ARG 3
-#define TOK_MAX 8
-
-enum
-{
-    PASS_MARK,
-    PASS_IMAG,
-    PASS_WRIT,
-};
-
-enum
-{
-    ARG_IMM = '#',
-    ARG_MEM = '$',
-    ARG_REG = '%',
-};
-
-struc(arg)
-{
-    char type;
-    union
-    {
-        u16 u;
-        i16 i;
-    };
-    char op;
-    arg *app;
-    u8 dir;
-};
-
-struc(ins)
-{
-    char name[TOK_MAX];
-    arg args[MAX_ARG];
-    u8 n_args;
-};
-
-struc(lab)
-{
-    char id[LAB_MAX];
-    umax off;
-};
-
-struc(asblock)
-{
-    FILE *in;
-    i16 c;
-    char tk[TOK_MAX];
-    u8 tk_len;
-    lab lb[MAX_LAB];
-    u16 n_lb;
-    umax off;
-    FILE *out;
-    u8 pass;
-};
-
-void strip_wsp(asblock *bk);
-#define next_c(bk) (bk)->c = fgetc((bk)->in)
-void get_tk(asblock *bk);
-
-u16 find_lb(asblock *bk);
-
-void get_arg(asblock *bk, arg *a);
+#include "as.h"
 
 ins parse_ins(asblock *bk)
 {
     get_tk(bk);
-    printf("Name %s\n", bk->tk);
-    ins i = {0};
+    ins i = {.n_args = 0};
     strcpy(i.name, bk->tk);
     for (;;)
     {
@@ -96,6 +26,8 @@ ins parse_ins(asblock *bk)
     return i;
 }
 
+void encode_ins(asblock *bk, ins i);
+
 void as_pass(asblock *bk)
 {
     while (bk->c != EOF)
@@ -108,13 +40,12 @@ void as_pass(asblock *bk)
         {
             next_c(bk);
             get_tk(bk);
-            printf("Label %s\n", bk->tk);
             strcpy(bk->lb[bk->n_lb++], bk->tk);
         }
         else if (isalpha(bk->c))
         {
-            printf("Instruction %c\n", bk->c);
             ins i = parse_ins(bk);
+            encode_ins(bk, i);
         }
         else
         {
@@ -144,7 +75,7 @@ void add_labels(asblock *bk)
 int main()
 {
     asblock bk = {
-        .in = fopen("../test.ps", "rt"),
+        .in = fopen("test.ps", "rt"),
         .c = fgetc(bk.in),
         .n_lb = 0,
         .off = 0,
@@ -182,7 +113,6 @@ void get_arg(asblock *bk, arg *a)
     a->type = bk->c;
     next_c(bk);
     get_tk(bk);
-    printf("Arg val %s\n", bk->tk);
     if (isdigit(bk->tk[0]))
     {
         char *eo_tk = bk->tk + bk->tk_len;
