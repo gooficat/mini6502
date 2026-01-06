@@ -2,7 +2,9 @@
 #include "as.h"
 #include <stdbool.h>
 
-const opc *find_opc(const ins *i);
+#define MAX_INS_BYTES 3
+
+const opc *find_opc(asblock *bk, const ins *i);
 
 const mnem *find_mnem(asblock *bk)
 {
@@ -18,12 +20,47 @@ const mnem *find_mnem(asblock *bk)
 
 void encode_ins(asblock *bk, ins i)
 {
-    //
+    const opc *op = find_opc(bk, &i);
+    printf("matched to code 0x%hhX\n", op->code);
+
+    u8 bytes[MAX_INS_BYTES];
+    i8 n_bytes = 1;
+    bytes[0] = op->code;
+
+    switch (op->prof)
+    {
+    case ADDR_A:
+        break;
+    case ADDR_ABS:
+        break;
+    case ADDR_ABS_X:
+        break;
+    case ADDR_ABS_Y:
+        break;
+    case ADDR_IMM:
+        //
+        break;
+    case ADDR_IMPL:
+        break;
+    case ADDR_IND:
+        break;
+    case ADDR_X_IND:
+        break;
+    default:
+        break;
+    }
+
+    bk->off += n_bytes;
+
+    if (bk->pass == PASS_WRIT)
+    {
+        fwrite(bytes, 1, n_bytes, bk->out);
+    }
 }
 
 const mnem mnems[] = {
     {"brk", 0, 1},
-    {"lda", 1, 4},
+    {"lda", 1, 5},
 };
 const u8 n_mnems = sizeof(mnems) / sizeof(mnem);
 const opc ops[] = {
@@ -34,11 +71,12 @@ const opc ops[] = {
     {0xB1, ADDR_IND_Y},
     {0xA5, ADDR_ZPG},
     {0xB5, ADDR_ZPG_X},
+    {0xB9, ADDR_IMM},
 
 };
 const u8 n_opcs = sizeof(ops) / sizeof(opc);
 
-const opc *find_opc(const ins *i)
+const opc *find_opc(asblock *bk, const ins *i)
 {
     for (u8 j = 0; j != n_opcs; ++j)
     {
@@ -106,8 +144,60 @@ const opc *find_opc(const ins *i)
                 match = true;
             }
             break;
-        default:
+        case ADDR_ZPG:
+            if (i->n_args == 1 &&
+                i->args[0].type == ARG_MEM &&
+                !i->args[0].dir)
+            {
+                if (bk->pass == PASS_IMAG ||
+                    i->args[0].u < 0xFF)
+                {
+                    match = true;
+                }
+            }
             break;
+        case ADDR_ZPG_X:
+            if (i->n_args == 2 &&
+                i->args[0].type == ARG_MEM &&
+                i->args[1].type == ARG_REG &&
+                i->args[1].u == 1 && // reg x
+                !i->args[0].dir &&
+                !i->args[1].dir)
+            {
+                if (bk->pass == PASS_IMAG ||
+                    i->args[0].u < 0xFF)
+                {
+                    match = true;
+                }
+            }
+            break;
+        case ADDR_ZPG_Y:
+            if (i->n_args == 2 &&
+                i->args[0].type == ARG_MEM &&
+                i->args[1].type == ARG_REG &&
+                i->args[1].u == 2 && // reg y
+                !i->args[0].dir &&
+                !i->args[1].dir)
+            {
+                if (bk->pass == PASS_IMAG ||
+                    i->args[0].u < 0xFF)
+                {
+                    match = true;
+                }
+            }
+            break;
+        case ADDR_REL:
+        {
+            i16 v = bk->off + 2 - i->args[0].i;
+            if (i->n_args == 1 && i->args[0].type == ARG_MEM)
+            {
+                if (bk->pass == PASS_IMAG || (v < INT8_MAX && v > INT8_MIN))
+                {
+                    match = true;
+                }
+            }
+            break;
+        }
         }
         if (match)
         {

@@ -75,12 +75,12 @@ void add_labels(asblock *bk)
 int main()
 {
     asblock bk = {
-        .in = fopen("test.ps", "rt"),
-        .c = fgetc(bk.in),
+        .in = fopen("C:/Users/User/Documents/c/miniprose/test.ps", "rt"),
         .n_lb = 0,
         .off = 0,
         // .pass = PASS_MARK, // reduntant
     };
+    bk.c = fgetc(bk.in);
 
     add_labels(&bk);
     rewind(bk.in);
@@ -110,6 +110,12 @@ void get_tk(asblock *bk)
 
 void get_arg(asblock *bk, arg *a)
 {
+    while (bk->c == '(')
+    {
+        a->dir += BIT(4);
+        next_c(bk);
+        strip_wsp(bk);
+    }
     a->type = bk->c;
     next_c(bk);
     get_tk(bk);
@@ -121,6 +127,12 @@ void get_arg(asblock *bk, arg *a)
     else
     {
         a->u = find_lb(bk);
+    }
+    while (bk->c == ')')
+    {
+        ++a->dir;
+        next_c(bk);
+        strip_wsp(bk);
     }
 }
 
