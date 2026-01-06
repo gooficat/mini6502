@@ -60,7 +60,9 @@ void encode_ins(asblock *bk, ins i)
 
 const mnem mnems[] = {
     {"brk", 0, 1},
-    {"lda", 1, 5},
+    {"lda", 1, 8},
+    {"jmp", 9, 2},
+    {"adc", 11, 8},
 };
 const u8 n_mnems = sizeof(mnems) / sizeof(mnem);
 const opc ops[] = {
@@ -71,8 +73,22 @@ const opc ops[] = {
     {0xB1, ADDR_IND_Y},
     {0xA5, ADDR_ZPG},
     {0xB5, ADDR_ZPG_X},
-    {0xB9, ADDR_IMM},
-
+    {0xA9, ADDR_IMM},
+    {0xB9, ADDR_ABS_Y},
+    {0xAD, ADDR_ABS},
+    {0xBD, ADDR_ABS_X},
+    // jmp
+    {0x4C, ADDR_ABS},
+    {0x6C, ADDR_IND},
+    // adc
+    {0x61, ADDR_X_IND},
+    {0x71, ADDR_IND_Y},
+    {0x65, ADDR_ZPG},
+    {0x75, ADDR_ZPG_X},
+    {0x69, ADDR_IMM},
+    {0x79, ADDR_ABS_Y},
+    {0x6D, ADDR_ABS},
+    {0x7D, ADDR_ABS_X},
 };
 const u8 n_opcs = sizeof(ops) / sizeof(opc);
 
