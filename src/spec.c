@@ -30,23 +30,26 @@ void encode_ins(asblock *bk, ins i)
     switch (op->prof)
     {
     case ADDR_A:
-        break;
-    case ADDR_ABS:
-        break;
-    case ADDR_ABS_X:
-        break;
-    case ADDR_ABS_Y:
-        break;
-    case ADDR_IMM:
-        //
-        break;
     case ADDR_IMPL:
         break;
+    case ADDR_ABS:
+    case ADDR_ABS_X:
+    case ADDR_ABS_Y:
+        if (bk->pass == PASS_WRIT)
+        {
+            bytes[n_bytes] = i.args[0].u & 0xFF;
+            bytes[n_bytes + 1] = (i.args[0].u >> 8) & 0xFF;
+        }
+        n_bytes += 2;
     case ADDR_IND:
-        break;
     case ADDR_X_IND:
-        break;
-    default:
+    case ADDR_IND_Y:
+    case ADDR_IMM:
+        if (bk->pass == PASS_WRIT)
+        {
+            bytes[n_bytes] = i.args[0].u & 0xFF;
+        }
+        ++n_bytes;
         break;
     }
 
@@ -156,6 +159,17 @@ const opc *find_opc(asblock *bk, const ins *i)
                 i->args[1].type == ARG_REG &&
                 i->args[1].u == 1 &&
                 i->args[1].dir == BHL(0, 1))
+            {
+                match = true;
+            }
+            break;
+        case ADDR_IND_Y:
+            if (i->n_args == 2 &&
+                i->args[0].type == ARG_MEM &&
+                i->args[0].dir == BHL(1, 1) &&
+                i->args[1].type == ARG_REG &&
+                i->args[1].u == 2 &&
+                i->args[1].dir == BHL(0, 0))
             {
                 match = true;
             }

@@ -30,6 +30,8 @@ void encode_ins(asblock *bk, ins i);
 
 void as_pass(asblock *bk)
 {
+    char next_pass = PASS_WRIT;
+    bk->off = 0;
     while (bk->c != EOF)
     {
         if (isspace(bk->c))
@@ -40,7 +42,13 @@ void as_pass(asblock *bk)
         {
             next_c(bk);
             get_tk(bk);
-            strcpy(bk->lb[bk->n_lb++], bk->tk);
+            lab *lb = find_lb(bk);
+            if (lb->off != bk->off)
+            {
+                printf("No match! %hu vs %hu\n", lb->off, bk->off);
+                lb->off = bk->off;
+                next_pass = PASS_PLAC;
+            }
         }
         else if (isalpha(bk->c))
         {
@@ -52,6 +60,7 @@ void as_pass(asblock *bk)
             // printf("unknown %c\n", bk->c);
         }
     }
+    bk->pass = next_pass;
 }
 
 void add_labels(asblock *bk)
@@ -62,8 +71,9 @@ void add_labels(asblock *bk)
         {
             next_c(bk);
             get_tk(bk);
-            printf("Label %s\n", bk->tk);
-            strcpy(bk->lb[bk->n_lb++], bk->tk);
+            printf("Label '%s'\n", bk->tk);
+            strcpy(bk->lb[bk->n_lb].id, bk->tk);
+            ++bk->n_lb;
         }
         else
         {
@@ -82,10 +92,28 @@ int main()
     };
     bk.c = fgetc(bk.in);
 
+    printf("Placing labels...\n");
     add_labels(&bk);
+
+    printf("Imaginary pass...\n");
+    bk.pass = PASS_IMAG;
     rewind(bk.in);
     bk.c = fgetc(bk.in);
-    bk.pass = PASS_IMAG;
+    as_pass(&bk);
+
+    bk.pass = PASS_PLAC;
+    while (bk.pass != PASS_WRIT)
+    {
+        printf("Label offset placing pass...\n");
+        rewind(bk.in);
+        bk.c = fgetc(bk.in);
+        as_pass(&bk);
+    }
+
+    bk.out = fopen("C:/Users/User/Documents/c/miniprose/test.bin", "wb");
+    printf("Encoding pass...\n");
+    rewind(bk.in);
+    bk.c = fgetc(bk.in);
     as_pass(&bk);
 }
 
@@ -136,15 +164,16 @@ void get_arg(asblock *bk, arg *a)
     }
 }
 
-u16 find_lb(asblock *bk)
+lab *find_lb(asblock *bk)
 {
     for (u16 i = 0; i != bk->n_lb; ++i)
     {
+        printf("checking if match label '%s'\n", bk->lb[i].id);
         if (!strcmp(bk->lb[i].id, bk->tk))
         {
-            return bk->lb[i].off;
+            return &bk->lb[i];
         }
     }
-    fprintf(stderr, "No label found for %s\n", bk->tk);
+    fprintf(stderr, "No label found for '%s'\n", bk->tk);
     exit(EXIT_FAILURE);
 }

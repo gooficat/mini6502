@@ -17,6 +17,7 @@ enum
 {
     PASS_MARK,
     PASS_IMAG,
+    PASS_PLAC,
     PASS_WRIT,
 };
 
@@ -70,6 +71,6 @@ void strip_wsp(asblock *bk);
 #define next_c(bk) (bk)->c = fgetc((bk)->in)
 void get_tk(asblock *bk);
 
-u16 find_lb(asblock *bk);
+lab *find_lb(asblock *bk);
 
 void get_arg(asblock *bk, arg *a);
