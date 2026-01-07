@@ -245,13 +245,17 @@ void add_labels(asblock *bk)
         }
     }
 }
+#define in_arg "C:/Users/User/Documents/c/miniprose/test.ps"
+// argv[1]
+#define out_arg "C:/Users/User/Documents/c/miniprose/test.bin"
+// argv[2]
 
 int main(int argc, char *argv[])
 {
-    assert(argc == 3 && "Error! Incorrect args! Correct args are /path/to/mini6502 <input file> <output file>\n");
+    // assert(argc == 3 && "Error! Incorrect args! Correct args are /path/to/mini6502 <input file> <output file>\n");
 
     asblock bk = {
-        .in = fopen(argv[1], "rt"),
+        .in = fopen(in_arg, "rt"),
         .n_lb = 0,
         .off = 0,
         // .pass = PASS_MARK, // reduntant
@@ -276,7 +280,7 @@ int main(int argc, char *argv[])
         as_pass(&bk);
     }
 
-    bk.out = fopen(argv[2], "wb");
+    bk.out = fopen(out_arg, "wb");
     // printf("Encoding pass...\n");
     rewind(bk.in);
     bk.c = fgetc(bk.in);

@@ -42,6 +42,7 @@ void encode_ins(asblock *bk, ins i)
             bytes[n_bytes + 1] = (i.args[0].u >> 8) & 0xFF;
         }
         n_bytes += 2;
+        break;
     case ADDR_IND:
     case ADDR_X_IND:
     case ADDR_IND_Y:
