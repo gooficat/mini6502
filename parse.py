@@ -82,10 +82,16 @@ for op in opcodes:
 
 out = open("spec.c", "wt")
 
-i : int = 0;
-out.write('{\n')
-for op in opcodes:
-    out.write(f'\t{'{'}"{op.name}", {i}, {len(op.profs)} {'}'},\n')
-    i += len(op.profs)
+# i : int = 0;
+# out.write('{\n')
+# for op in opcodes:
+#     out.write(f'\t{'{'}"{op.name}", {i}, {len(op.profs)} {'}'},\n')
+#     i += len(op.profs)
 
-out.write('}')
+# out.write('}')
+
+for op in opcodes:
+    out.write(f'\t// {op.name}\n')
+
+    for pf in op.profs:
+        out.write(f'\t{'{'}\t{hex(pf.opcode)}, {pf.spec}{'}'},\n')
