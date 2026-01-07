@@ -15,14 +15,14 @@ const mnem *find_mnem(const ins *instr)
             return &mnems[i];
         }
     }
-    printf("No match for mnem %s", instr->name);
+    // printf("No match for mnem %s", instr->name);
     return NULL;
 }
 
 void encode_ins(asblock *bk, ins i)
 {
     const opc *op = find_opc(bk, &i);
-    printf("matched %s to code 0x%hhX\n", i.name, op->code);
+    // printf("matched %s to code 0x%hhX\n", i.name, op->code);
 
     u8 bytes[MAX_INS_BYTES];
     i8 n_bytes = 1;
@@ -465,7 +465,7 @@ const opc *find_opc(asblock *bk, const ins *i)
             i16 v = (-(bk->off + 2) + i->args[0].i);
             if (i->n_args == 1 && i->args[0].type == ARG_MEM)
             {
-                printf("Memory arg at %i, of %i (%i)\n", bk->off, i->args[0].i, v);
+                // printf("Memory arg at %i, of %i (%i)\n", bk->off, i->args[0].i, v);
                 if (bk->pass == PASS_IMAG || (v < INT8_MAX && v > INT8_MIN))
                 {
                     match = true;

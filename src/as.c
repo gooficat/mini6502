@@ -45,7 +45,7 @@ union ui parse_arith(asblock *bk)
         }
 
         out.i = strtol(n, &eo_n, radix);
-        printf("Val %hi\n", out.i);
+        // printf("Val %hi\n", out.i);
     }
     strip_wsp(bk);
     if (bk->c != EOF)
@@ -124,7 +124,7 @@ ins parse_ins(asblock *bk)
         }
         next_c(bk);
     }
-    printf("Instruction ends at %c (%s)\n", bk->c, bk->tk);
+    // printf("Instruction ends at %c (%s)\n", bk->c, bk->tk);
     return i;
 }
 
@@ -144,7 +144,7 @@ void handle_dir(asblock *bk)
     if (!strcmp(name, "org"))
     {
         bk->off += parse_arith(bk).u;
-        printf("Org %hu\n", bk->off);
+        // printf("Org %hu\n", bk->off);
     }
     else if (!strcmp(name, "align"))
     {
@@ -204,7 +204,7 @@ void as_pass(asblock *bk)
             lab *lb = find_lb(bk);
             if (lb->off != bk->off)
             {
-                printf("No match! %hu vs %hu\n", lb->off, bk->off);
+                // printf("No match! %hu vs %hu\n", lb->off, bk->off);
                 lb->off = bk->off;
                 next_pass = PASS_PLAC;
             }
@@ -220,7 +220,7 @@ void as_pass(asblock *bk)
         }
         // else
         // {
-        //     printf("Unexpected character %c, followed by %c in %s\n", bk->c, bk->tk);
+        //     // printf("Unexpected character %c, followed by %c in %s\n", bk->c, bk->tk);
         //     exit(EXIT_FAILURE);
         // }
     }
@@ -235,7 +235,7 @@ void add_labels(asblock *bk)
         {
             next_c(bk);
             get_tk(bk);
-            printf("Label '%s'\n", bk->tk);
+            // printf("Label '%s'\n", bk->tk);
             strcpy(bk->lb[bk->n_lb].id, bk->tk);
             ++bk->n_lb;
         }
@@ -246,20 +246,22 @@ void add_labels(asblock *bk)
     }
 }
 
-int main()
+int main(int argc, char *argv[])
 {
+    assert(argc == 3 && "Error! Incorrect args! Correct args are /path/to/mini6502 <input file> <output file>\n");
+
     asblock bk = {
-        .in = fopen("C:/Users/User/Documents/c/miniprose/test.ps", "rt"),
+        .in = fopen(argv[1], "rt"),
         .n_lb = 0,
         .off = 0,
         // .pass = PASS_MARK, // reduntant
     };
     bk.c = fgetc(bk.in);
 
-    printf("Placing labels...\n");
+    // printf("Placing labels...\n");
     add_labels(&bk);
 
-    printf("Imaginary pass...\n");
+    // printf("Imaginary pass...\n");
     bk.pass = PASS_IMAG;
     rewind(bk.in);
     bk.c = fgetc(bk.in);
@@ -268,17 +270,20 @@ int main()
     bk.pass = PASS_PLAC;
     while (bk.pass != PASS_WRIT)
     {
-        printf("Label offset placing pass...\n");
+        // printf("Label offset placing pass...\n");
         rewind(bk.in);
         bk.c = fgetc(bk.in);
         as_pass(&bk);
     }
 
-    bk.out = fopen("C:/Users/User/Documents/c/miniprose/test.bin", "wb");
-    printf("Encoding pass...\n");
+    bk.out = fopen(argv[2], "wb");
+    // printf("Encoding pass...\n");
     rewind(bk.in);
     bk.c = fgetc(bk.in);
     as_pass(&bk);
+
+    fclose(bk.in);
+    fclose(bk.out);
 }
 
 void strip_wsp(asblock *bk)
@@ -311,7 +316,7 @@ void get_arg(asblock *bk, arg *a)
     a->type = bk->c;
     next_c(bk);
     get_tk(bk);
-    printf("Digit %s\n", bk->tk);
+    // printf("Digit %s\n", bk->tk);
     a->i = parse_arith(bk).i;
     while (bk->c == ']')
     {
@@ -325,7 +330,7 @@ lab *find_lb(asblock *bk)
 {
     for (u16 i = 0; i != bk->n_lb; ++i)
     {
-        printf("checking if match label '%s'\n", bk->lb[i].id);
+        // printf("checking if match label '%s'\n", bk->lb[i].id);
         if (!strcmp(bk->lb[i].id, bk->tk))
         {
             return &bk->lb[i];
