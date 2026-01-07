@@ -28,14 +28,16 @@ enum
     ARG_REG = '%',
 };
 
+union ui
+{
+    umax u;
+    imax i;
+};
+
 struc(arg)
 {
     char type;
-    union
-    {
-        u16 u;
-        i16 i;
-    };
+    union ui;
     char op;
     arg *app;
     u8 dir;

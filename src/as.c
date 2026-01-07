@@ -1,5 +1,99 @@
 #include "as.h"
 
+union ui parse_arith(asblock *bk)
+{
+    char *n = bk->tk;
+    union ui out;
+    if (isalpha(bk->tk[0]))
+    {
+        out.u = find_lb(bk)->off;
+    }
+    else
+    {
+        i8 radix;
+        char *eo_n = bk->tk + bk->tk_len;
+
+        if (bk->tk_len > 2)
+        {
+            switch (bk->tk[1])
+            {
+            case 'x':
+                radix = 16;
+                break;
+            case 'b':
+                radix = 2;
+                break;
+            case 'o':
+                radix = 8;
+                break;
+            default:
+                goto deci;
+            }
+
+            n += 2;
+        }
+        else
+        {
+        deci:;
+            radix = 10;
+        }
+
+        out.i = strtol(n, &eo_n, radix);
+    }
+    strip_wsp(bk);
+    if (bk->c != EOF)
+    {
+        char sign = bk->c;
+        switch (bk->c)
+        {
+        case '+':
+            next_c(bk);
+            strip_wsp(bk);
+            out.i += parse_arith(bk).i;
+            break;
+        case '-':
+            next_c(bk);
+            strip_wsp(bk);
+            out.i -= parse_arith(bk).i;
+            break;
+        case '*':
+            next_c(bk);
+            strip_wsp(bk);
+            out.i *= parse_arith(bk).i;
+            break;
+        case '/':
+            next_c(bk);
+            strip_wsp(bk);
+            out.i /= parse_arith(bk).i;
+            break;
+        case '%':
+            next_c(bk);
+            strip_wsp(bk);
+            out.i %= parse_arith(bk).i;
+            break;
+        case '^':
+            next_c(bk);
+            strip_wsp(bk);
+            out.i ^= parse_arith(bk).i;
+            break;
+        case '&':
+            next_c(bk);
+            strip_wsp(bk);
+            out.i &= parse_arith(bk).i;
+            break;
+        case '|':
+            next_c(bk);
+            strip_wsp(bk);
+            out.i |= parse_arith(bk).i;
+            break;
+        default:
+            break;
+        }
+    }
+
+    return out;
+}
+
 ins parse_ins(asblock *bk)
 {
     get_tk(bk);
@@ -27,6 +121,15 @@ ins parse_ins(asblock *bk)
 }
 
 void encode_ins(asblock *bk, ins i);
+
+void handle_dir(asblock *bk)
+{
+    if (!strcmp(bk->tk, "org"))
+    {
+        char *eo_tk = bk->tk + bk->tk_len;
+        //
+    }
+}
 
 void as_pass(asblock *bk)
 {
@@ -151,8 +254,7 @@ void get_arg(asblock *bk, arg *a)
     get_tk(bk);
     if (isdigit(bk->tk[0]))
     {
-        char *eo_tk = bk->tk + bk->tk_len;
-        a->u = strtoull(bk->tk, &eo_tk, 10);
+        a->i = parse_arith(bk).i;
     }
     else
     {
