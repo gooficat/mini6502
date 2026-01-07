@@ -1,441 +1,439 @@
-<tbody>
-	<tr>
-		<th scope="row">0‐</th>
-		<td aria-label="$ 00; Sym.: BRK; Instr.: Break / interrupt; Addr.: implied" class="clickable" data-opc="00">BRK
-			impl</td>
-		<td aria-label="$ 01; Sym.: ORA; Instr.: Or with accumulator; Addr.: X-indexed, indirect" class="clickable"
-			data-opc="01">ORA X,ind</td>
-		<td class="undef" data-opc="02">---</td>
-		<td class="undef" data-opc="03">---</td>
-		<td class="undef wdcClickable" data-opc="04">---</td>
-		<td aria-label="$ 05; Sym.: ORA; Instr.: Or with accumulator; Addr.: zero-page" class="clickable" data-opc="05">
-			ORA zpg</td>
-		<td aria-label="$ 06; Sym.: ASL; Instr.: Arithmetic shift left; Addr.: zero-page" class="clickable"
-			data-opc="06">ASL zpg</td>
-		<td class="undef wdcClickable" data-opc="07">---</td>
-		<td aria-label="$ 08; Sym.: PHP; Instr.: Push processor status onto stack; Addr.: implied" class="clickable"
-			data-opc="08">PHP impl</td>
-		<td aria-label="$ 09; Sym.: ORA; Instr.: Or with accumulator; Addr.: immediate" class="clickable" data-opc="09">
-			ORA #</td>
-		<td aria-label="$ 0A; Sym.: ASL; Instr.: Arithmetic shift left; Addr.: accumulator (implied)" class="clickable"
-			data-opc="0a">ASL A</td>
-		<td class="undef" data-opc="0b">---</td>
-		<td class="undef wdcClickable" data-opc="0c">---</td>
-		<td aria-label="$ 0D; Sym.: ORA; Instr.: Or with accumulator; Addr.: absolute" class="clickable" data-opc="0d">
-			ORA abs</td>
-		<td aria-label="$ 0E; Sym.: ASL; Instr.: Arithmetic shift left; Addr.: absolute" class="clickable"
-			data-opc="0e">ASL abs</td>
-		<td class="undef wdcClickable" data-opc="0f">---</td>
-	</tr>
-	<tr>
-		<th scope="row">1‐</th>
-		<td aria-label="$ 10; Sym.: BPL; Instr.: Branch on plus; Addr.: relative" class="clickable" data-opc="10">BPL
-			rel</td>
-		<td aria-label="$ 11; Sym.: ORA; Instr.: Or with accumulator; Addr.: indirect, Y-indexed" class="clickable"
-			data-opc="11">ORA ind,Y</td>
-		<td class="undef wdcClickable" data-opc="12">---</td>
-		<td class="undef" data-opc="13">---</td>
-		<td class="undef wdcClickable" data-opc="14">---</td>
-		<td aria-label="$ 15; Sym.: ORA; Instr.: Or with accumulator; Addr.: zero-page, X-indexed" class="clickable"
-			data-opc="15">ORA zpg,X</td>
-		<td aria-label="$ 16; Sym.: ASL; Instr.: Arithmetic shift left; Addr.: zero-page, X-indexed" class="clickable"
-			data-opc="16">ASL zpg,X</td>
-		<td class="undef wdcClickable" data-opc="17">---</td>
-		<td aria-label="$ 18; Sym.: CLC; Instr.: Clear carry; Addr.: implied" class="clickable" data-opc="18">CLC impl
-		</td>
-		<td aria-label="$ 19; Sym.: ORA; Instr.: Or with accumulator; Addr.: absolute, Y-indexed" class="clickable"
-			data-opc="19">ORA abs,Y</td>
-		<td class="undef wdcClickable" data-opc="1a">---</td>
-		<td class="undef" data-opc="1b">---</td>
-		<td class="undef wdcClickable" data-opc="1c">---</td>
-		<td aria-label="$ 1D; Sym.: ORA; Instr.: Or with accumulator; Addr.: absolute, X-indexed" class="clickable"
-			data-opc="1d">ORA abs,X</td>
-		<td aria-label="$ 1E; Sym.: ASL; Instr.: Arithmetic shift left; Addr.: absolute, X-indexed" class="clickable"
-			data-opc="1e">ASL abs,X</td>
-		<td class="undef wdcClickable" data-opc="1f">---</td>
-	</tr>
-	<tr>
-		<th scope="row">2‐</th>
-		<td aria-label="$ 20; Sym.: JSR; Instr.: Jump subroutine; Addr.: absolute" class="clickable" data-opc="20">JSR
-			abs</td>
-		<td aria-label="$ 21; Sym.: AND; Instr.: And; Addr.: X-indexed, indirect" class="clickable" data-opc="21">AND
-			X,ind</td>
-		<td class="undef" data-opc="22">---</td>
-		<td class="undef" data-opc="23">---</td>
-		<td aria-label="$ 24; Sym.: BIT; Instr.: Bit test; Addr.: zero-page" class="clickable" data-opc="24">BIT zpg
-		</td>
-		<td aria-label="$ 25; Sym.: AND; Instr.: And; Addr.: zero-page" class="clickable" data-opc="25">AND zpg</td>
-		<td aria-label="$ 26; Sym.: ROL; Instr.: Rotate left; Addr.: zero-page" class="clickable" data-opc="26">ROL zpg
-		</td>
-		<td class="undef wdcClickable" data-opc="27">---</td>
-		<td aria-label="$ 28; Sym.: PLP; Instr.: Pull processor status from stack; Addr.: implied" class="clickable"
-			data-opc="28">PLP impl</td>
-		<td aria-label="$ 29; Sym.: AND; Instr.: And; Addr.: immediate" class="clickable" data-opc="29">AND #</td>
-		<td aria-label="$ 2A; Sym.: ROL; Instr.: Rotate left; Addr.: accumulator (implied)" class="clickable"
-			data-opc="2a">ROL A</td>
-		<td class="undef" data-opc="2b">---</td>
-		<td aria-label="$ 2C; Sym.: BIT; Instr.: Bit test; Addr.: absolute" class="clickable" data-opc="2c">BIT abs</td>
-		<td aria-label="$ 2D; Sym.: AND; Instr.: And; Addr.: absolute" class="clickable" data-opc="2d">AND abs</td>
-		<td aria-label="$ 2E; Sym.: ROL; Instr.: Rotate left; Addr.: absolute" class="clickable" data-opc="2e">ROL abs
-		</td>
-		<td class="undef wdcClickable" data-opc="2f">---</td>
-	</tr>
-	<tr>
-		<th scope="row">3‐</th>
-		<td aria-label="$ 30; Sym.: BMI; Instr.: Branch on minus; Addr.: relative" class="clickable" data-opc="30">BMI
-			rel</td>
-		<td aria-label="$ 31; Sym.: AND; Instr.: And; Addr.: indirect, Y-indexed" class="clickable" data-opc="31">AND
-			ind,Y</td>
-		<td class="undef wdcClickable" data-opc="32">---</td>
-		<td class="undef" data-opc="33">---</td>
-		<td class="undef wdcClickable" data-opc="34">---</td>
-		<td aria-label="$ 35; Sym.: AND; Instr.: And; Addr.: zero-page, X-indexed" class="clickable" data-opc="35">AND
-			zpg,X</td>
-		<td aria-label="$ 36; Sym.: ROL; Instr.: Rotate left; Addr.: zero-page, X-indexed" class="clickable"
-			data-opc="36">ROL zpg,X</td>
-		<td class="undef wdcClickable" data-opc="37">---</td>
-		<td aria-label="$ 38; Sym.: SEC; Instr.: Set carry; Addr.: implied" class="clickable" data-opc="38">SEC impl
-		</td>
-		<td aria-label="$ 39; Sym.: AND; Instr.: And; Addr.: absolute, Y-indexed" class="clickable" data-opc="39">AND
-			abs,Y</td>
-		<td class="undef wdcClickable" data-opc="3a">---</td>
-		<td class="undef" data-opc="3b">---</td>
-		<td class="undef wdcClickable" data-opc="3c">---</td>
-		<td aria-label="$ 3D; Sym.: AND; Instr.: And; Addr.: absolute, X-indexed" class="clickable" data-opc="3d">AND
-			abs,X</td>
-		<td aria-label="$ 3E; Sym.: ROL; Instr.: Rotate left; Addr.: absolute, X-indexed" class="clickable"
-			data-opc="3e">ROL abs,X</td>
-		<td class="undef wdcClickable" data-opc="3f">---</td>
-	</tr>
-	<tr>
-		<th scope="row">4‐</th>
-		<td aria-label="$ 40; Sym.: RTI; Instr.: Return from interrupt; Addr.: implied" class="clickable" data-opc="40">
-			RTI impl</td>
-		<td aria-label="$ 41; Sym.: EOR; Instr.: Exclusive or; Addr.: X-indexed, indirect" class="clickable"
-			data-opc="41">EOR X,ind</td>
-		<td class="undef" data-opc="42">---</td>
-		<td class="undef" data-opc="43">---</td>
-		<td class="undef" data-opc="44">---</td>
-		<td aria-label="$ 45; Sym.: EOR; Instr.: Exclusive or; Addr.: zero-page" class="clickable" data-opc="45">EOR zpg
-		</td>
-		<td aria-label="$ 46; Sym.: LSR; Instr.: Logical shift right; Addr.: zero-page" class="clickable" data-opc="46">
-			LSR zpg</td>
-		<td class="undef wdcClickable" data-opc="47">---</td>
-		<td aria-label="$ 48; Sym.: PHA; Instr.: Push accumulator onto stack; Addr.: implied" class="clickable"
-			data-opc="48">PHA impl</td>
-		<td aria-label="$ 49; Sym.: EOR; Instr.: Exclusive or; Addr.: immediate" class="clickable" data-opc="49">EOR #
-		</td>
-		<td aria-label="$ 4A; Sym.: LSR; Instr.: Logical shift right; Addr.: accumulator (implied)" class="clickable"
-			data-opc="4a">LSR A</td>
-		<td class="undef" data-opc="4b">---</td>
-		<td aria-label="$ 4C; Sym.: JMP; Instr.: Jump; Addr.: absolute" class="clickable" data-opc="4c">JMP abs</td>
-		<td aria-label="$ 4D; Sym.: EOR; Instr.: Exclusive or; Addr.: absolute" class="clickable" data-opc="4d">EOR abs
-		</td>
-		<td aria-label="$ 4E; Sym.: LSR; Instr.: Logical shift right; Addr.: absolute" class="clickable" data-opc="4e">
-			LSR abs</td>
-		<td class="undef wdcClickable" data-opc="4f">---</td>
-	</tr>
-	<tr>
-		<th scope="row">5‐</th>
-		<td aria-label="$ 50; Sym.: BVC; Instr.: Branch on oVerflow clear; Addr.: relative" class="clickable"
-			data-opc="50">BVC rel</td>
-		<td aria-label="$ 51; Sym.: EOR; Instr.: Exclusive or; Addr.: indirect, Y-indexed" class="clickable"
-			data-opc="51">EOR ind,Y</td>
-		<td class="undef wdcClickable" data-opc="52">---</td>
-		<td class="undef" data-opc="53">---</td>
-		<td class="undef" data-opc="54">---</td>
-		<td aria-label="$ 55; Sym.: EOR; Instr.: Exclusive or; Addr.: zero-page, X-indexed" class="clickable"
-			data-opc="55">EOR zpg,X</td>
-		<td aria-label="$ 56; Sym.: LSR; Instr.: Logical shift right; Addr.: zero-page, X-indexed" class="clickable"
-			data-opc="56">LSR zpg,X</td>
-		<td class="undef wdcClickable" data-opc="57">---</td>
-		<td aria-label="$ 58; Sym.: CLI; Instr.: Clear interrupt disable; Addr.: implied" class="clickable"
-			data-opc="58">CLI impl</td>
-		<td aria-label="$ 59; Sym.: EOR; Instr.: Exclusive or; Addr.: absolute, Y-indexed" class="clickable"
-			data-opc="59">EOR abs,Y</td>
-		<td class="undef wdcClickable" data-opc="5a">---</td>
-		<td class="undef" data-opc="5b">---</td>
-		<td class="undef" data-opc="5c">---</td>
-		<td aria-label="$ 5D; Sym.: EOR; Instr.: Exclusive or; Addr.: absolute, X-indexed" class="clickable"
-			data-opc="5d">EOR abs,X</td>
-		<td aria-label="$ 5E; Sym.: LSR; Instr.: Logical shift right; Addr.: absolute, X-indexed" class="clickable"
-			data-opc="5e">LSR abs,X</td>
-		<td class="undef wdcClickable" data-opc="5f">---</td>
-	</tr>
-	<tr>
-		<th scope="row">6‐</th>
-		<td aria-label="$ 60; Sym.: RTS; Instr.: Return from subroutine; Addr.: implied" class="clickable"
-			data-opc="60">RTS impl</td>
-		<td aria-label="$ 61; Sym.: ADC; Instr.: Add with carry; Addr.: X-indexed, indirect" class="clickable"
-			data-opc="61">ADC X,ind</td>
-		<td class="undef" data-opc="62">---</td>
-		<td class="undef" data-opc="63">---</td>
-		<td class="undef wdcClickable" data-opc="64">---</td>
-		<td aria-label="$ 65; Sym.: ADC; Instr.: Add with carry; Addr.: zero-page" class="clickable" data-opc="65">ADC
-			zpg</td>
-		<td aria-label="$ 66; Sym.: ROR; Instr.: Rotate right; Addr.: zero-page" class="clickable" data-opc="66">ROR zpg
-		</td>
-		<td class="undef wdcClickable" data-opc="67">---</td>
-		<td aria-label="$ 68; Sym.: PLA; Instr.: Pull accumulator from stack; Addr.: implied" class="clickable"
-			data-opc="68">PLA impl</td>
-		<td aria-label="$ 69; Sym.: ADC; Instr.: Add with carry; Addr.: immediate" class="clickable" data-opc="69">ADC #
-		</td>
-		<td aria-label="$ 6A; Sym.: ROR; Instr.: Rotate right; Addr.: accumulator (implied)" class="clickable"
-			data-opc="6a">ROR A</td>
-		<td class="undef" data-opc="6b">---</td>
-		<td aria-label="$ 6C; Sym.: JMP; Instr.: Jump; Addr.: indirect" class="clickable" data-opc="6c">JMP ind</td>
-		<td aria-label="$ 6D; Sym.: ADC; Instr.: Add with carry; Addr.: absolute" class="clickable" data-opc="6d">ADC
-			abs</td>
-		<td aria-label="$ 6E; Sym.: ROR; Instr.: Rotate right; Addr.: absolute" class="clickable" data-opc="6e">ROR abs
-		</td>
-		<td class="undef wdcClickable" data-opc="6f">---</td>
-	</tr>
-	<tr>
-		<th scope="row">7‐</th>
-		<td aria-label="$ 70; Sym.: BVS; Instr.: Branch on oVerflow set; Addr.: relative" class="clickable"
-			data-opc="70">BVS rel</td>
-		<td aria-label="$ 71; Sym.: ADC; Instr.: Add with carry; Addr.: indirect, Y-indexed" class="clickable"
-			data-opc="71">ADC ind,Y</td>
-		<td class="undef wdcClickable" data-opc="72">---</td>
-		<td class="undef" data-opc="73">---</td>
-		<td class="undef wdcClickable" data-opc="74">---</td>
-		<td aria-label="$ 75; Sym.: ADC; Instr.: Add with carry; Addr.: zero-page, X-indexed" class="clickable"
-			data-opc="75">ADC zpg,X</td>
-		<td aria-label="$ 76; Sym.: ROR; Instr.: Rotate right; Addr.: zero-page, X-indexed" class="clickable"
-			data-opc="76">ROR zpg,X</td>
-		<td class="undef wdcClickable" data-opc="77">---</td>
-		<td aria-label="$ 78; Sym.: SEI; Instr.: Set interrupt disable; Addr.: implied" class="clickable" data-opc="78">
-			SEI impl</td>
-		<td aria-label="$ 79; Sym.: ADC; Instr.: Add with carry; Addr.: absolute, Y-indexed" class="clickable"
-			data-opc="79">ADC abs,Y</td>
-		<td class="undef wdcClickable" data-opc="7a">---</td>
-		<td class="undef" data-opc="7b">---</td>
-		<td class="undef wdcClickable" data-opc="7c">---</td>
-		<td aria-label="$ 7D; Sym.: ADC; Instr.: Add with carry; Addr.: absolute, X-indexed" class="clickable"
-			data-opc="7d">ADC abs,X</td>
-		<td aria-label="$ 7E; Sym.: ROR; Instr.: Rotate right; Addr.: absolute, X-indexed" class="clickable"
-			data-opc="7e">ROR abs,X</td>
-		<td class="undef wdcClickable" data-opc="7f">---</td>
-	</tr>
-	<tr>
-		<th scope="row">8‐</th>
-		<td class="undef wdcClickable" data-opc="80">---</td>
-		<td aria-label="$ 81; Sym.: STA; Instr.: Store accumulator; Addr.: X-indexed, indirect" class="clickable"
-			data-opc="81">STA X,ind</td>
-		<td class="undef" data-opc="82">---</td>
-		<td class="undef" data-opc="83">---</td>
-		<td aria-label="$ 84; Sym.: STY; Instr.: Store Y; Addr.: zero-page" class="clickable" data-opc="84">STY zpg</td>
-		<td aria-label="$ 85; Sym.: STA; Instr.: Store accumulator; Addr.: zero-page" class="clickable" data-opc="85">
-			STA zpg</td>
-		<td aria-label="$ 86; Sym.: STX; Instr.: Store X; Addr.: zero-page" class="clickable" data-opc="86">STX zpg</td>
-		<td class="undef wdcClickable" data-opc="87">---</td>
-		<td aria-label="$ 88; Sym.: DEY; Instr.: Decrement Y; Addr.: implied" class="clickable" data-opc="88">DEY impl
-		</td>
-		<td class="undef wdcClickable" data-opc="89">---</td>
-		<td aria-label="$ 8A; Sym.: TXA; Instr.: Transfer X to accumulator; Addr.: implied" class="clickable"
-			data-opc="8a">TXA impl</td>
-		<td class="undef" data-opc="8b">---</td>
-		<td aria-label="$ 8C; Sym.: STY; Instr.: Store Y; Addr.: absolute" class="clickable" data-opc="8c">STY abs</td>
-		<td aria-label="$ 8D; Sym.: STA; Instr.: Store accumulator; Addr.: absolute" class="clickable" data-opc="8d">STA
-			abs</td>
-		<td aria-label="$ 8E; Sym.: STX; Instr.: Store X; Addr.: absolute" class="clickable" data-opc="8e">STX abs</td>
-		<td class="undef wdcClickable" data-opc="8f">---</td>
-	</tr>
-	<tr>
-		<th scope="row">9‐</th>
-		<td aria-label="$ 90; Sym.: BCC; Instr.: Branch on carry clear; Addr.: relative" class="clickable"
-			data-opc="90">BCC rel</td>
-		<td aria-label="$ 91; Sym.: STA; Instr.: Store accumulator; Addr.: indirect, Y-indexed" class="clickable"
-			data-opc="91">STA ind,Y</td>
-		<td class="undef wdcClickable" data-opc="92">---</td>
-		<td class="undef" data-opc="93">---</td>
-		<td aria-label="$ 94; Sym.: STY; Instr.: Store Y; Addr.: zero-page, X-indexed" class="clickable" data-opc="94">
-			STY zpg,X</td>
-		<td aria-label="$ 95; Sym.: STA; Instr.: Store accumulator; Addr.: zero-page, X-indexed" class="clickable"
-			data-opc="95">STA zpg,X</td>
-		<td aria-label="$ 96; Sym.: STX; Instr.: Store X; Addr.: zero-page, Y-indexed" class="clickable" data-opc="96">
-			STX zpg,Y</td>
-		<td class="undef wdcClickable" data-opc="97">---</td>
-		<td aria-label="$ 98; Sym.: TYA; Instr.: Transfer Y to accumulator; Addr.: implied" class="clickable"
-			data-opc="98">TYA impl</td>
-		<td aria-label="$ 99; Sym.: STA; Instr.: Store accumulator; Addr.: absolute, Y-indexed" class="clickable"
-			data-opc="99">STA abs,Y</td>
-		<td aria-label="$ 9A; Sym.: TXS; Instr.: Transfer X to stack pointer; Addr.: implied" class="clickable"
-			data-opc="9a">TXS impl</td>
-		<td class="undef" data-opc="9b">---</td>
-		<td class="undef wdcClickable" data-opc="9c">---</td>
-		<td aria-label="$ 9D; Sym.: STA; Instr.: Store accumulator; Addr.: absolute, X-indexed" class="clickable"
-			data-opc="9d">STA abs,X</td>
-		<td class="undef wdcClickable" data-opc="9e">---</td>
-		<td class="undef wdcClickable" data-opc="9f">---</td>
-	</tr>
-	<tr>
-		<th scope="row">A‐</th>
-		<td aria-label="$ A0; Sym.: LDY; Instr.: Load Y; Addr.: immediate" class="clickable" data-opc="a0">LDY #</td>
-		<td aria-label="$ A1; Sym.: LDA; Instr.: Load accumulator; Addr.: X-indexed, indirect" class="clickable"
-			data-opc="a1">LDA X,ind</td>
-		<td aria-label="$ A2; Sym.: LDX; Instr.: Load X; Addr.: immediate" class="clickable" data-opc="a2">LDX #</td>
-		<td class="undef" data-opc="a3">---</td>
-		<td aria-label="$ A4; Sym.: LDY; Instr.: Load Y; Addr.: zero-page" class="clickable" data-opc="a4">LDY zpg</td>
-		<td aria-label="$ A5; Sym.: LDA; Instr.: Load accumulator; Addr.: zero-page" class="clickable" data-opc="a5">LDA
-			zpg</td>
-		<td aria-label="$ A6; Sym.: LDX; Instr.: Load X; Addr.: zero-page" class="clickable" data-opc="a6">LDX zpg</td>
-		<td class="undef wdcClickable" data-opc="a7">---</td>
-		<td aria-label="$ A8; Sym.: TAY; Instr.: Transfer accumulator to Y; Addr.: implied" class="clickable"
-			data-opc="a8">TAY impl</td>
-		<td aria-label="$ A9; Sym.: LDA; Instr.: Load accumulator; Addr.: immediate" class="clickable" data-opc="a9">LDA
-			#</td>
-		<td aria-label="$ AA; Sym.: TAX; Instr.: Transfer accumulator to X; Addr.: implied" class="clickable"
-			data-opc="aa">TAX impl</td>
-		<td class="undef" data-opc="ab">---</td>
-		<td aria-label="$ AC; Sym.: LDY; Instr.: Load Y; Addr.: absolute" class="clickable" data-opc="ac">LDY abs</td>
-		<td aria-label="$ AD; Sym.: LDA; Instr.: Load accumulator; Addr.: absolute" class="clickable" data-opc="ad">LDA
-			abs</td>
-		<td aria-label="$ AE; Sym.: LDX; Instr.: Load X; Addr.: absolute" class="clickable" data-opc="ae">LDX abs</td>
-		<td class="undef wdcClickable" data-opc="af">---</td>
-	</tr>
-	<tr>
-		<th scope="row">B‐</th>
-		<td aria-label="$ B0; Sym.: BCS; Instr.: Branch on carry set; Addr.: relative" class="clickable" data-opc="b0">
-			BCS rel</td>
-		<td aria-label="$ B1; Sym.: LDA; Instr.: Load accumulator; Addr.: indirect, Y-indexed" class="clickable"
-			data-opc="b1">LDA ind,Y</td>
-		<td class="undef wdcClickable" data-opc="b2">---</td>
-		<td class="undef" data-opc="b3">---</td>
-		<td aria-label="$ B4; Sym.: LDY; Instr.: Load Y; Addr.: zero-page, X-indexed" class="clickable" data-opc="b4">
-			LDY zpg,X</td>
-		<td aria-label="$ B5; Sym.: LDA; Instr.: Load accumulator; Addr.: zero-page, X-indexed" class="clickable"
-			data-opc="b5">LDA zpg,X</td>
-		<td aria-label="$ B6; Sym.: LDX; Instr.: Load X; Addr.: zero-page, Y-indexed" class="clickable" data-opc="b6">
-			LDX zpg,Y</td>
-		<td class="undef wdcClickable" data-opc="b7">---</td>
-		<td aria-label="$ B8; Sym.: CLV; Instr.: Clear oVerflow; Addr.: implied" class="clickable" data-opc="b8">CLV
-			impl</td>
-		<td aria-label="$ B9; Sym.: LDA; Instr.: Load accumulator; Addr.: absolute, Y-indexed" class="clickable"
-			data-opc="b9">LDA abs,Y</td>
-		<td aria-label="$ BA; Sym.: TSX; Instr.: Transfer stack pointer to X; Addr.: implied" class="clickable"
-			data-opc="ba">TSX impl</td>
-		<td class="undef" data-opc="bb">---</td>
-		<td aria-label="$ BC; Sym.: LDY; Instr.: Load Y; Addr.: absolute, X-indexed" class="clickable" data-opc="bc">LDY
-			abs,X</td>
-		<td aria-label="$ BD; Sym.: LDA; Instr.: Load accumulator; Addr.: absolute, X-indexed" class="clickable"
-			data-opc="bd">LDA abs,X</td>
-		<td aria-label="$ BE; Sym.: LDX; Instr.: Load X; Addr.: absolute, Y-indexed" class="clickable" data-opc="be">LDX
-			abs,Y</td>
-		<td class="undef wdcClickable" data-opc="bf">---</td>
-	</tr>
-	<tr>
-		<th scope="row">C‐</th>
-		<td aria-label="$ C0; Sym.: CPY; Instr.: Compare with Y; Addr.: immediate" class="clickable" data-opc="c0">CPY #
-		</td>
-		<td aria-label="$ C1; Sym.: CMP; Instr.: Compare with accumulator; Addr.: X-indexed, indirect" class="clickable"
-			data-opc="c1">CMP X,ind</td>
-		<td class="undef" data-opc="c2">---</td>
-		<td class="undef" data-opc="c3">---</td>
-		<td aria-label="$ C4; Sym.: CPY; Instr.: Compare with Y; Addr.: zero-page" class="clickable" data-opc="c4">CPY
-			zpg</td>
-		<td aria-label="$ C5; Sym.: CMP; Instr.: Compare with accumulator; Addr.: zero-page" class="clickable"
-			data-opc="c5">CMP zpg</td>
-		<td aria-label="$ C6; Sym.: DEC; Instr.: Decrement; Addr.: zero-page" class="clickable" data-opc="c6">DEC zpg
-		</td>
-		<td class="undef wdcClickable" data-opc="c7">---</td>
-		<td aria-label="$ C8; Sym.: INY; Instr.: Increment Y; Addr.: implied" class="clickable" data-opc="c8">INY impl
-		</td>
-		<td aria-label="$ C9; Sym.: CMP; Instr.: Compare with accumulator; Addr.: immediate" class="clickable"
-			data-opc="c9">CMP #</td>
-		<td aria-label="$ CA; Sym.: DEX; Instr.: Decrement X; Addr.: implied" class="clickable" data-opc="ca">DEX impl
-		</td>
-		<td class="undef wdcClickable" data-opc="cb">---</td>
-		<td aria-label="$ CC; Sym.: CPY; Instr.: Compare with Y; Addr.: absolute" class="clickable" data-opc="cc">CPY
-			abs</td>
-		<td aria-label="$ CD; Sym.: CMP; Instr.: Compare with accumulator; Addr.: absolute" class="clickable"
-			data-opc="cd">CMP abs</td>
-		<td aria-label="$ CE; Sym.: DEC; Instr.: Decrement; Addr.: absolute" class="clickable" data-opc="ce">DEC abs
-		</td>
-		<td class="undef wdcClickable" data-opc="cf">---</td>
-	</tr>
-	<tr>
-		<th scope="row">D‐</th>
-		<td aria-label="$ D0; Sym.: BNE; Instr.: Branch on not equal; Addr.: relative" class="clickable" data-opc="d0">
-			BNE rel</td>
-		<td aria-label="$ D1; Sym.: CMP; Instr.: Compare with accumulator; Addr.: indirect, Y-indexed" class="clickable"
-			data-opc="d1">CMP ind,Y</td>
-		<td class="undef wdcClickable" data-opc="d2">---</td>
-		<td class="undef" data-opc="d3">---</td>
-		<td class="undef" data-opc="d4">---</td>
-		<td aria-label="$ D5; Sym.: CMP; Instr.: Compare with accumulator; Addr.: zero-page, X-indexed"
-			class="clickable" data-opc="d5">CMP zpg,X</td>
-		<td aria-label="$ D6; Sym.: DEC; Instr.: Decrement; Addr.: zero-page, X-indexed" class="clickable"
-			data-opc="d6">DEC zpg,X</td>
-		<td class="undef wdcClickable" data-opc="d7">---</td>
-		<td aria-label="$ D8; Sym.: CLD; Instr.: Clear decimal; Addr.: implied" class="clickable" data-opc="d8">CLD impl
-		</td>
-		<td aria-label="$ D9; Sym.: CMP; Instr.: Compare with accumulator; Addr.: absolute, Y-indexed" class="clickable"
-			data-opc="d9">CMP abs,Y</td>
-		<td class="undef wdcClickable" data-opc="da">---</td>
-		<td class="undef wdcClickable" data-opc="db">---</td>
-		<td class="undef" data-opc="dc">---</td>
-		<td aria-label="$ DD; Sym.: CMP; Instr.: Compare with accumulator; Addr.: absolute, X-indexed" class="clickable"
-			data-opc="dd">CMP abs,X</td>
-		<td aria-label="$ DE; Sym.: DEC; Instr.: Decrement; Addr.: absolute, X-indexed" class="clickable" data-opc="de">
-			DEC abs,X</td>
-		<td class="undef wdcClickable" data-opc="df">---</td>
-	</tr>
-	<tr>
-		<th scope="row">E‐</th>
-		<td aria-label="$ E0; Sym.: CPX; Instr.: Compare with X; Addr.: immediate" class="clickable" data-opc="e0">CPX #
-		</td>
-		<td aria-label="$ E1; Sym.: SBC; Instr.: Subtract with carry; Addr.: X-indexed, indirect" class="clickable"
-			data-opc="e1">SBC X,ind</td>
-		<td class="undef" data-opc="e2">---</td>
-		<td class="undef" data-opc="e3">---</td>
-		<td aria-label="$ E4; Sym.: CPX; Instr.: Compare with X; Addr.: zero-page" class="clickable" data-opc="e4">CPX
-			zpg</td>
-		<td aria-label="$ E5; Sym.: SBC; Instr.: Subtract with carry; Addr.: zero-page" class="clickable" data-opc="e5">
-			SBC zpg</td>
-		<td aria-label="$ E6; Sym.: INC; Instr.: Increment; Addr.: zero-page" class="clickable" data-opc="e6">INC zpg
-		</td>
-		<td class="undef wdcClickable" data-opc="e7">---</td>
-		<td aria-label="$ E8; Sym.: INX; Instr.: Increment X; Addr.: implied" class="clickable" data-opc="e8">INX impl
-		</td>
-		<td aria-label="$ E9; Sym.: SBC; Instr.: Subtract with carry; Addr.: immediate" class="clickable" data-opc="e9">
-			SBC #</td>
-		<td aria-label="$ EA; Sym.: NOP; Instr.: No operation; Addr.: implied" class="clickable" data-opc="ea">NOP impl
-		</td>
-		<td class="undef" data-opc="eb">---</td>
-		<td aria-label="$ EC; Sym.: CPX; Instr.: Compare with X; Addr.: absolute" class="clickable" data-opc="ec">CPX
-			abs</td>
-		<td aria-label="$ ED; Sym.: SBC; Instr.: Subtract with carry; Addr.: absolute" class="clickable" data-opc="ed">
-			SBC abs</td>
-		<td aria-label="$ EE; Sym.: INC; Instr.: Increment; Addr.: absolute" class="clickable" data-opc="ee">INC abs
-		</td>
-		<td class="undef wdcClickable" data-opc="ef">---</td>
-	</tr>
-	<tr>
-		<th scope="row">F‐</th>
-		<td aria-label="$ F0; Sym.: BEQ; Instr.: Branch on equal; Addr.: relative" class="clickable" data-opc="f0">BEQ
-			rel</td>
-		<td aria-label="$ F1; Sym.: SBC; Instr.: Subtract with carry; Addr.: indirect, Y-indexed" class="clickable"
-			data-opc="f1">SBC ind,Y</td>
-		<td class="undef wdcClickable" data-opc="f2">---</td>
-		<td class="undef" data-opc="f3">---</td>
-		<td class="undef" data-opc="f4">---</td>
-		<td aria-label="$ F5; Sym.: SBC; Instr.: Subtract with carry; Addr.: zero-page, X-indexed" class="clickable"
-			data-opc="f5">SBC zpg,X</td>
-		<td aria-label="$ F6; Sym.: INC; Instr.: Increment; Addr.: zero-page, X-indexed" class="clickable"
-			data-opc="f6">INC zpg,X</td>
-		<td class="undef wdcClickable" data-opc="f7">---</td>
-		<td aria-label="$ F8; Sym.: SED; Instr.: Set decimal; Addr.: implied" class="clickable" data-opc="f8">SED impl
-		</td>
-		<td aria-label="$ F9; Sym.: SBC; Instr.: Subtract with carry; Addr.: absolute, Y-indexed" class="clickable"
-			data-opc="f9">SBC abs,Y</td>
-		<td class="undef wdcClickable" data-opc="fa">---</td>
-		<td class="undef" data-opc="fb">---</td>
-		<td class="undef" data-opc="fc">---</td>
-		<td aria-label="$ FD; Sym.: SBC; Instr.: Subtract with carry; Addr.: absolute, X-indexed" class="clickable"
-			data-opc="fd">SBC abs,X</td>
-		<td aria-label="$ FE; Sym.: INC; Instr.: Increment; Addr.: absolute, X-indexed" class="clickable" data-opc="fe">
-			INC abs,X</td>
-		<td class="undef wdcClickable" data-opc="ff">---</td>
-	</tr>
-</tbody>
+<tr>
+	<th scope="row">0‐</th>
+	<td aria-label="$ 00; Sym.: BRK; Instr.: Break / interrupt; Addr.: implied" class="clickable" data-opc="00">BRK
+		impl</td>
+	<td aria-label="$ 01; Sym.: ORA; Instr.: Or with accumulator; Addr.: X-indexed, indirect" class="clickable"
+		data-opc="01">ORA X,ind</td>
+	<td class="undef" data-opc="02">---</td>
+	<td class="undef" data-opc="03">---</td>
+	<td class="undef wdcClickable" data-opc="04">---</td>
+	<td aria-label="$ 05; Sym.: ORA; Instr.: Or with accumulator; Addr.: zero-page" class="clickable" data-opc="05">
+		ORA zpg</td>
+	<td aria-label="$ 06; Sym.: ASL; Instr.: Arithmetic shift left; Addr.: zero-page" class="clickable" data-opc="06">
+		ASL zpg</td>
+	<td class="undef wdcClickable" data-opc="07">---</td>
+	<td aria-label="$ 08; Sym.: PHP; Instr.: Push processor status onto stack; Addr.: implied" class="clickable"
+		data-opc="08">PHP impl</td>
+	<td aria-label="$ 09; Sym.: ORA; Instr.: Or with accumulator; Addr.: immediate" class="clickable" data-opc="09">
+		ORA #</td>
+	<td aria-label="$ 0A; Sym.: ASL; Instr.: Arithmetic shift left; Addr.: accumulator (implied)" class="clickable"
+		data-opc="0a">ASL A</td>
+	<td class="undef" data-opc="0b">---</td>
+	<td class="undef wdcClickable" data-opc="0c">---</td>
+	<td aria-label="$ 0D; Sym.: ORA; Instr.: Or with accumulator; Addr.: absolute" class="clickable" data-opc="0d">
+		ORA abs</td>
+	<td aria-label="$ 0E; Sym.: ASL; Instr.: Arithmetic shift left; Addr.: absolute" class="clickable" data-opc="0e">ASL
+		abs</td>
+	<td class="undef wdcClickable" data-opc="0f">---</td>
+</tr>
+<tr>
+	<th scope="row">1‐</th>
+	<td aria-label="$ 10; Sym.: BPL; Instr.: Branch on plus; Addr.: relative" class="clickable" data-opc="10">BPL
+		rel</td>
+	<td aria-label="$ 11; Sym.: ORA; Instr.: Or with accumulator; Addr.: indirect, Y-indexed" class="clickable"
+		data-opc="11">ORA ind,Y</td>
+	<td class="undef wdcClickable" data-opc="12">---</td>
+	<td class="undef" data-opc="13">---</td>
+	<td class="undef wdcClickable" data-opc="14">---</td>
+	<td aria-label="$ 15; Sym.: ORA; Instr.: Or with accumulator; Addr.: zero-page, X-indexed" class="clickable"
+		data-opc="15">ORA zpg,X</td>
+	<td aria-label="$ 16; Sym.: ASL; Instr.: Arithmetic shift left; Addr.: zero-page, X-indexed" class="clickable"
+		data-opc="16">ASL zpg,X</td>
+	<td class="undef wdcClickable" data-opc="17">---</td>
+	<td aria-label="$ 18; Sym.: CLC; Instr.: Clear carry; Addr.: implied" class="clickable" data-opc="18">CLC impl
+	</td>
+	<td aria-label="$ 19; Sym.: ORA; Instr.: Or with accumulator; Addr.: absolute, Y-indexed" class="clickable"
+		data-opc="19">ORA abs,Y</td>
+	<td class="undef wdcClickable" data-opc="1a">---</td>
+	<td class="undef" data-opc="1b">---</td>
+	<td class="undef wdcClickable" data-opc="1c">---</td>
+	<td aria-label="$ 1D; Sym.: ORA; Instr.: Or with accumulator; Addr.: absolute, X-indexed" class="clickable"
+		data-opc="1d">ORA abs,X</td>
+	<td aria-label="$ 1E; Sym.: ASL; Instr.: Arithmetic shift left; Addr.: absolute, X-indexed" class="clickable"
+		data-opc="1e">ASL abs,X</td>
+	<td class="undef wdcClickable" data-opc="1f">---</td>
+</tr>
+<tr>
+	<th scope="row">2‐</th>
+	<td aria-label="$ 20; Sym.: JSR; Instr.: Jump subroutine; Addr.: absolute" class="clickable" data-opc="20">JSR
+		abs</td>
+	<td aria-label="$ 21; Sym.: AND; Instr.: And; Addr.: X-indexed, indirect" class="clickable" data-opc="21">AND
+		X,ind</td>
+	<td class="undef" data-opc="22">---</td>
+	<td class="undef" data-opc="23">---</td>
+	<td aria-label="$ 24; Sym.: BIT; Instr.: Bit test; Addr.: zero-page" class="clickable" data-opc="24">BIT zpg
+	</td>
+	<td aria-label="$ 25; Sym.: AND; Instr.: And; Addr.: zero-page" class="clickable" data-opc="25">AND zpg</td>
+	<td aria-label="$ 26; Sym.: ROL; Instr.: Rotate left; Addr.: zero-page" class="clickable" data-opc="26">ROL zpg
+	</td>
+	<td class="undef wdcClickable" data-opc="27">---</td>
+	<td aria-label="$ 28; Sym.: PLP; Instr.: Pull processor status from stack; Addr.: implied" class="clickable"
+		data-opc="28">PLP impl</td>
+	<td aria-label="$ 29; Sym.: AND; Instr.: And; Addr.: immediate" class="clickable" data-opc="29">AND #</td>
+	<td aria-label="$ 2A; Sym.: ROL; Instr.: Rotate left; Addr.: accumulator (implied)" class="clickable" data-opc="2a">
+		ROL A</td>
+	<td class="undef" data-opc="2b">---</td>
+	<td aria-label="$ 2C; Sym.: BIT; Instr.: Bit test; Addr.: absolute" class="clickable" data-opc="2c">BIT abs</td>
+	<td aria-label="$ 2D; Sym.: AND; Instr.: And; Addr.: absolute" class="clickable" data-opc="2d">AND abs</td>
+	<td aria-label="$ 2E; Sym.: ROL; Instr.: Rotate left; Addr.: absolute" class="clickable" data-opc="2e">ROL abs
+	</td>
+	<td class="undef wdcClickable" data-opc="2f">---</td>
+</tr>
+<tr>
+	<th scope="row">3‐</th>
+	<td aria-label="$ 30; Sym.: BMI; Instr.: Branch on minus; Addr.: relative" class="clickable" data-opc="30">BMI
+		rel</td>
+	<td aria-label="$ 31; Sym.: AND; Instr.: And; Addr.: indirect, Y-indexed" class="clickable" data-opc="31">AND
+		ind,Y</td>
+	<td class="undef wdcClickable" data-opc="32">---</td>
+	<td class="undef" data-opc="33">---</td>
+	<td class="undef wdcClickable" data-opc="34">---</td>
+	<td aria-label="$ 35; Sym.: AND; Instr.: And; Addr.: zero-page, X-indexed" class="clickable" data-opc="35">AND
+		zpg,X</td>
+	<td aria-label="$ 36; Sym.: ROL; Instr.: Rotate left; Addr.: zero-page, X-indexed" class="clickable" data-opc="36">
+		ROL zpg,X</td>
+	<td class="undef wdcClickable" data-opc="37">---</td>
+	<td aria-label="$ 38; Sym.: SEC; Instr.: Set carry; Addr.: implied" class="clickable" data-opc="38">SEC impl
+	</td>
+	<td aria-label="$ 39; Sym.: AND; Instr.: And; Addr.: absolute, Y-indexed" class="clickable" data-opc="39">AND
+		abs,Y</td>
+	<td class="undef wdcClickable" data-opc="3a">---</td>
+	<td class="undef" data-opc="3b">---</td>
+	<td class="undef wdcClickable" data-opc="3c">---</td>
+	<td aria-label="$ 3D; Sym.: AND; Instr.: And; Addr.: absolute, X-indexed" class="clickable" data-opc="3d">AND
+		abs,X</td>
+	<td aria-label="$ 3E; Sym.: ROL; Instr.: Rotate left; Addr.: absolute, X-indexed" class="clickable" data-opc="3e">
+		ROL abs,X</td>
+	<td class="undef wdcClickable" data-opc="3f">---</td>
+</tr>
+<tr>
+	<th scope="row">4‐</th>
+	<td aria-label="$ 40; Sym.: RTI; Instr.: Return from interrupt; Addr.: implied" class="clickable" data-opc="40">
+		RTI impl</td>
+	<td aria-label="$ 41; Sym.: EOR; Instr.: Exclusive or; Addr.: X-indexed, indirect" class="clickable" data-opc="41">
+		EOR X,ind</td>
+	<td class="undef" data-opc="42">---</td>
+	<td class="undef" data-opc="43">---</td>
+	<td class="undef" data-opc="44">---</td>
+	<td aria-label="$ 45; Sym.: EOR; Instr.: Exclusive or; Addr.: zero-page" class="clickable" data-opc="45">EOR zpg
+	</td>
+	<td aria-label="$ 46; Sym.: LSR; Instr.: Logical shift right; Addr.: zero-page" class="clickable" data-opc="46">
+		LSR zpg</td>
+	<td class="undef wdcClickable" data-opc="47">---</td>
+	<td aria-label="$ 48; Sym.: PHA; Instr.: Push accumulator onto stack; Addr.: implied" class="clickable"
+		data-opc="48">PHA impl</td>
+	<td aria-label="$ 49; Sym.: EOR; Instr.: Exclusive or; Addr.: immediate" class="clickable" data-opc="49">EOR #
+	</td>
+	<td aria-label="$ 4A; Sym.: LSR; Instr.: Logical shift right; Addr.: accumulator (implied)" class="clickable"
+		data-opc="4a">LSR A</td>
+	<td class="undef" data-opc="4b">---</td>
+	<td aria-label="$ 4C; Sym.: JMP; Instr.: Jump; Addr.: absolute" class="clickable" data-opc="4c">JMP abs</td>
+	<td aria-label="$ 4D; Sym.: EOR; Instr.: Exclusive or; Addr.: absolute" class="clickable" data-opc="4d">EOR abs
+	</td>
+	<td aria-label="$ 4E; Sym.: LSR; Instr.: Logical shift right; Addr.: absolute" class="clickable" data-opc="4e">
+		LSR abs</td>
+	<td class="undef wdcClickable" data-opc="4f">---</td>
+</tr>
+<tr>
+	<th scope="row">5‐</th>
+	<td aria-label="$ 50; Sym.: BVC; Instr.: Branch on oVerflow clear; Addr.: relative" class="clickable" data-opc="50">
+		BVC rel</td>
+	<td aria-label="$ 51; Sym.: EOR; Instr.: Exclusive or; Addr.: indirect, Y-indexed" class="clickable" data-opc="51">
+		EOR ind,Y</td>
+	<td class="undef wdcClickable" data-opc="52">---</td>
+	<td class="undef" data-opc="53">---</td>
+	<td class="undef" data-opc="54">---</td>
+	<td aria-label="$ 55; Sym.: EOR; Instr.: Exclusive or; Addr.: zero-page, X-indexed" class="clickable" data-opc="55">
+		EOR zpg,X</td>
+	<td aria-label="$ 56; Sym.: LSR; Instr.: Logical shift right; Addr.: zero-page, X-indexed" class="clickable"
+		data-opc="56">LSR zpg,X</td>
+	<td class="undef wdcClickable" data-opc="57">---</td>
+	<td aria-label="$ 58; Sym.: CLI; Instr.: Clear interrupt disable; Addr.: implied" class="clickable" data-opc="58">
+		CLI impl</td>
+	<td aria-label="$ 59; Sym.: EOR; Instr.: Exclusive or; Addr.: absolute, Y-indexed" class="clickable" data-opc="59">
+		EOR abs,Y</td>
+	<td class="undef wdcClickable" data-opc="5a">---</td>
+	<td class="undef" data-opc="5b">---</td>
+	<td class="undef" data-opc="5c">---</td>
+	<td aria-label="$ 5D; Sym.: EOR; Instr.: Exclusive or; Addr.: absolute, X-indexed" class="clickable" data-opc="5d">
+		EOR abs,X</td>
+	<td aria-label="$ 5E; Sym.: LSR; Instr.: Logical shift right; Addr.: absolute, X-indexed" class="clickable"
+		data-opc="5e">LSR abs,X</td>
+	<td class="undef wdcClickable" data-opc="5f">---</td>
+</tr>
+<tr>
+	<th scope="row">6‐</th>
+	<td aria-label="$ 60; Sym.: RTS; Instr.: Return from subroutine; Addr.: implied" class="clickable" data-opc="60">RTS
+		impl</td>
+	<td aria-label="$ 61; Sym.: ADC; Instr.: Add with carry; Addr.: X-indexed, indirect" class="clickable"
+		data-opc="61">ADC X,ind</td>
+	<td class="undef" data-opc="62">---</td>
+	<td class="undef" data-opc="63">---</td>
+	<td class="undef wdcClickable" data-opc="64">---</td>
+	<td aria-label="$ 65; Sym.: ADC; Instr.: Add with carry; Addr.: zero-page" class="clickable" data-opc="65">ADC
+		zpg</td>
+	<td aria-label="$ 66; Sym.: ROR; Instr.: Rotate right; Addr.: zero-page" class="clickable" data-opc="66">ROR zpg
+	</td>
+	<td class="undef wdcClickable" data-opc="67">---</td>
+	<td aria-label="$ 68; Sym.: PLA; Instr.: Pull accumulator from stack; Addr.: implied" class="clickable"
+		data-opc="68">PLA impl</td>
+	<td aria-label="$ 69; Sym.: ADC; Instr.: Add with carry; Addr.: immediate" class="clickable" data-opc="69">ADC #
+	</td>
+	<td aria-label="$ 6A; Sym.: ROR; Instr.: Rotate right; Addr.: accumulator (implied)" class="clickable"
+		data-opc="6a">ROR A</td>
+	<td class="undef" data-opc="6b">---</td>
+	<td aria-label="$ 6C; Sym.: JMP; Instr.: Jump; Addr.: indirect" class="clickable" data-opc="6c">JMP ind</td>
+	<td aria-label="$ 6D; Sym.: ADC; Instr.: Add with carry; Addr.: absolute" class="clickable" data-opc="6d">ADC
+		abs</td>
+	<td aria-label="$ 6E; Sym.: ROR; Instr.: Rotate right; Addr.: absolute" class="clickable" data-opc="6e">ROR abs
+	</td>
+	<td class="undef wdcClickable" data-opc="6f">---</td>
+</tr>
+<tr>
+	<th scope="row">7‐</th>
+	<td aria-label="$ 70; Sym.: BVS; Instr.: Branch on oVerflow set; Addr.: relative" class="clickable" data-opc="70">
+		BVS rel</td>
+	<td aria-label="$ 71; Sym.: ADC; Instr.: Add with carry; Addr.: indirect, Y-indexed" class="clickable"
+		data-opc="71">ADC ind,Y</td>
+	<td class="undef wdcClickable" data-opc="72">---</td>
+	<td class="undef" data-opc="73">---</td>
+	<td class="undef wdcClickable" data-opc="74">---</td>
+	<td aria-label="$ 75; Sym.: ADC; Instr.: Add with carry; Addr.: zero-page, X-indexed" class="clickable"
+		data-opc="75">ADC zpg,X</td>
+	<td aria-label="$ 76; Sym.: ROR; Instr.: Rotate right; Addr.: zero-page, X-indexed" class="clickable" data-opc="76">
+		ROR zpg,X</td>
+	<td class="undef wdcClickable" data-opc="77">---</td>
+	<td aria-label="$ 78; Sym.: SEI; Instr.: Set interrupt disable; Addr.: implied" class="clickable" data-opc="78">
+		SEI impl</td>
+	<td aria-label="$ 79; Sym.: ADC; Instr.: Add with carry; Addr.: absolute, Y-indexed" class="clickable"
+		data-opc="79">ADC abs,Y</td>
+	<td class="undef wdcClickable" data-opc="7a">---</td>
+	<td class="undef" data-opc="7b">---</td>
+	<td class="undef wdcClickable" data-opc="7c">---</td>
+	<td aria-label="$ 7D; Sym.: ADC; Instr.: Add with carry; Addr.: absolute, X-indexed" class="clickable"
+		data-opc="7d">ADC abs,X</td>
+	<td aria-label="$ 7E; Sym.: ROR; Instr.: Rotate right; Addr.: absolute, X-indexed" class="clickable" data-opc="7e">
+		ROR abs,X</td>
+	<td class="undef wdcClickable" data-opc="7f">---</td>
+</tr>
+<tr>
+	<th scope="row">8‐</th>
+	<td class="undef wdcClickable" data-opc="80">---</td>
+	<td aria-label="$ 81; Sym.: STA; Instr.: Store accumulator; Addr.: X-indexed, indirect" class="clickable"
+		data-opc="81">STA X,ind</td>
+	<td class="undef" data-opc="82">---</td>
+	<td class="undef" data-opc="83">---</td>
+	<td aria-label="$ 84; Sym.: STY; Instr.: Store Y; Addr.: zero-page" class="clickable" data-opc="84">STY zpg</td>
+	<td aria-label="$ 85; Sym.: STA; Instr.: Store accumulator; Addr.: zero-page" class="clickable" data-opc="85">
+		STA zpg</td>
+	<td aria-label="$ 86; Sym.: STX; Instr.: Store X; Addr.: zero-page" class="clickable" data-opc="86">STX zpg</td>
+	<td class="undef wdcClickable" data-opc="87">---</td>
+	<td aria-label="$ 88; Sym.: DEY; Instr.: Decrement Y; Addr.: implied" class="clickable" data-opc="88">DEY impl
+	</td>
+	<td class="undef wdcClickable" data-opc="89">---</td>
+	<td aria-label="$ 8A; Sym.: TXA; Instr.: Transfer X to accumulator; Addr.: implied" class="clickable" data-opc="8a">
+		TXA impl</td>
+	<td class="undef" data-opc="8b">---</td>
+	<td aria-label="$ 8C; Sym.: STY; Instr.: Store Y; Addr.: absolute" class="clickable" data-opc="8c">STY abs</td>
+	<td aria-label="$ 8D; Sym.: STA; Instr.: Store accumulator; Addr.: absolute" class="clickable" data-opc="8d">STA
+		abs</td>
+	<td aria-label="$ 8E; Sym.: STX; Instr.: Store X; Addr.: absolute" class="clickable" data-opc="8e">STX abs</td>
+	<td class="undef wdcClickable" data-opc="8f">---</td>
+</tr>
+<tr>
+	<th scope="row">9‐</th>
+	<td aria-label="$ 90; Sym.: BCC; Instr.: Branch on carry clear; Addr.: relative" class="clickable" data-opc="90">BCC
+		rel</td>
+	<td aria-label="$ 91; Sym.: STA; Instr.: Store accumulator; Addr.: indirect, Y-indexed" class="clickable"
+		data-opc="91">STA ind,Y</td>
+	<td class="undef wdcClickable" data-opc="92">---</td>
+	<td class="undef" data-opc="93">---</td>
+	<td aria-label="$ 94; Sym.: STY; Instr.: Store Y; Addr.: zero-page, X-indexed" class="clickable" data-opc="94">
+		STY zpg,X</td>
+	<td aria-label="$ 95; Sym.: STA; Instr.: Store accumulator; Addr.: zero-page, X-indexed" class="clickable"
+		data-opc="95">STA zpg,X</td>
+	<td aria-label="$ 96; Sym.: STX; Instr.: Store X; Addr.: zero-page, Y-indexed" class="clickable" data-opc="96">
+		STX zpg,Y</td>
+	<td class="undef wdcClickable" data-opc="97">---</td>
+	<td aria-label="$ 98; Sym.: TYA; Instr.: Transfer Y to accumulator; Addr.: implied" class="clickable" data-opc="98">
+		TYA impl</td>
+	<td aria-label="$ 99; Sym.: STA; Instr.: Store accumulator; Addr.: absolute, Y-indexed" class="clickable"
+		data-opc="99">STA abs,Y</td>
+	<td aria-label="$ 9A; Sym.: TXS; Instr.: Transfer X to stack pointer; Addr.: implied" class="clickable"
+		data-opc="9a">TXS impl</td>
+	<td class="undef" data-opc="9b">---</td>
+	<td class="undef wdcClickable" data-opc="9c">---</td>
+	<td aria-label="$ 9D; Sym.: STA; Instr.: Store accumulator; Addr.: absolute, X-indexed" class="clickable"
+		data-opc="9d">STA abs,X</td>
+	<td class="undef wdcClickable" data-opc="9e">---</td>
+	<td class="undef wdcClickable" data-opc="9f">---</td>
+</tr>
+<tr>
+	<th scope="row">A‐</th>
+	<td aria-label="$ A0; Sym.: LDY; Instr.: Load Y; Addr.: immediate" class="clickable" data-opc="a0">LDY #</td>
+	<td aria-label="$ A1; Sym.: LDA; Instr.: Load accumulator; Addr.: X-indexed, indirect" class="clickable"
+		data-opc="a1">LDA X,ind</td>
+	<td aria-label="$ A2; Sym.: LDX; Instr.: Load X; Addr.: immediate" class="clickable" data-opc="a2">LDX #</td>
+	<td class="undef" data-opc="a3">---</td>
+	<td aria-label="$ A4; Sym.: LDY; Instr.: Load Y; Addr.: zero-page" class="clickable" data-opc="a4">LDY zpg</td>
+	<td aria-label="$ A5; Sym.: LDA; Instr.: Load accumulator; Addr.: zero-page" class="clickable" data-opc="a5">LDA
+		zpg</td>
+	<td aria-label="$ A6; Sym.: LDX; Instr.: Load X; Addr.: zero-page" class="clickable" data-opc="a6">LDX zpg</td>
+	<td class="undef wdcClickable" data-opc="a7">---</td>
+	<td aria-label="$ A8; Sym.: TAY; Instr.: Transfer accumulator to Y; Addr.: implied" class="clickable" data-opc="a8">
+		TAY impl</td>
+	<td aria-label="$ A9; Sym.: LDA; Instr.: Load accumulator; Addr.: immediate" class="clickable" data-opc="a9">LDA
+		#</td>
+	<td aria-label="$ AA; Sym.: TAX; Instr.: Transfer accumulator to X; Addr.: implied" class="clickable" data-opc="aa">
+		TAX impl</td>
+	<td class="undef" data-opc="ab">---</td>
+	<td aria-label="$ AC; Sym.: LDY; Instr.: Load Y; Addr.: absolute" class="clickable" data-opc="ac">LDY abs</td>
+	<td aria-label="$ AD; Sym.: LDA; Instr.: Load accumulator; Addr.: absolute" class="clickable" data-opc="ad">LDA
+		abs</td>
+	<td aria-label="$ AE; Sym.: LDX; Instr.: Load X; Addr.: absolute" class="clickable" data-opc="ae">LDX abs</td>
+	<td class="undef wdcClickable" data-opc="af">---</td>
+</tr>
+<tr>
+	<th scope="row">B‐</th>
+	<td aria-label="$ B0; Sym.: BCS; Instr.: Branch on carry set; Addr.: relative" class="clickable" data-opc="b0">
+		BCS rel</td>
+	<td aria-label="$ B1; Sym.: LDA; Instr.: Load accumulator; Addr.: indirect, Y-indexed" class="clickable"
+		data-opc="b1">LDA ind,Y</td>
+	<td class="undef wdcClickable" data-opc="b2">---</td>
+	<td class="undef" data-opc="b3">---</td>
+	<td aria-label="$ B4; Sym.: LDY; Instr.: Load Y; Addr.: zero-page, X-indexed" class="clickable" data-opc="b4">
+		LDY zpg,X</td>
+	<td aria-label="$ B5; Sym.: LDA; Instr.: Load accumulator; Addr.: zero-page, X-indexed" class="clickable"
+		data-opc="b5">LDA zpg,X</td>
+	<td aria-label="$ B6; Sym.: LDX; Instr.: Load X; Addr.: zero-page, Y-indexed" class="clickable" data-opc="b6">
+		LDX zpg,Y</td>
+	<td class="undef wdcClickable" data-opc="b7">---</td>
+	<td aria-label="$ B8; Sym.: CLV; Instr.: Clear oVerflow; Addr.: implied" class="clickable" data-opc="b8">CLV
+		impl</td>
+	<td aria-label="$ B9; Sym.: LDA; Instr.: Load accumulator; Addr.: absolute, Y-indexed" class="clickable"
+		data-opc="b9">LDA abs,Y</td>
+	<td aria-label="$ BA; Sym.: TSX; Instr.: Transfer stack pointer to X; Addr.: implied" class="clickable"
+		data-opc="ba">TSX impl</td>
+	<td class="undef" data-opc="bb">---</td>
+	<td aria-label="$ BC; Sym.: LDY; Instr.: Load Y; Addr.: absolute, X-indexed" class="clickable" data-opc="bc">LDY
+		abs,X</td>
+	<td aria-label="$ BD; Sym.: LDA; Instr.: Load accumulator; Addr.: absolute, X-indexed" class="clickable"
+		data-opc="bd">LDA abs,X</td>
+	<td aria-label="$ BE; Sym.: LDX; Instr.: Load X; Addr.: absolute, Y-indexed" class="clickable" data-opc="be">LDX
+		abs,Y</td>
+	<td class="undef wdcClickable" data-opc="bf">---</td>
+</tr>
+<tr>
+	<th scope="row">C‐</th>
+	<td aria-label="$ C0; Sym.: CPY; Instr.: Compare with Y; Addr.: immediate" class="clickable" data-opc="c0">CPY #
+	</td>
+	<td aria-label="$ C1; Sym.: CMP; Instr.: Compare with accumulator; Addr.: X-indexed, indirect" class="clickable"
+		data-opc="c1">CMP X,ind</td>
+	<td class="undef" data-opc="c2">---</td>
+	<td class="undef" data-opc="c3">---</td>
+	<td aria-label="$ C4; Sym.: CPY; Instr.: Compare with Y; Addr.: zero-page" class="clickable" data-opc="c4">CPY
+		zpg</td>
+	<td aria-label="$ C5; Sym.: CMP; Instr.: Compare with accumulator; Addr.: zero-page" class="clickable"
+		data-opc="c5">CMP zpg</td>
+	<td aria-label="$ C6; Sym.: DEC; Instr.: Decrement; Addr.: zero-page" class="clickable" data-opc="c6">DEC zpg
+	</td>
+	<td class="undef wdcClickable" data-opc="c7">---</td>
+	<td aria-label="$ C8; Sym.: INY; Instr.: Increment Y; Addr.: implied" class="clickable" data-opc="c8">INY impl
+	</td>
+	<td aria-label="$ C9; Sym.: CMP; Instr.: Compare with accumulator; Addr.: immediate" class="clickable"
+		data-opc="c9">CMP #</td>
+	<td aria-label="$ CA; Sym.: DEX; Instr.: Decrement X; Addr.: implied" class="clickable" data-opc="ca">DEX impl
+	</td>
+	<td class="undef wdcClickable" data-opc="cb">---</td>
+	<td aria-label="$ CC; Sym.: CPY; Instr.: Compare with Y; Addr.: absolute" class="clickable" data-opc="cc">CPY
+		abs</td>
+	<td aria-label="$ CD; Sym.: CMP; Instr.: Compare with accumulator; Addr.: absolute" class="clickable" data-opc="cd">
+		CMP abs</td>
+	<td aria-label="$ CE; Sym.: DEC; Instr.: Decrement; Addr.: absolute" class="clickable" data-opc="ce">DEC abs
+	</td>
+	<td class="undef wdcClickable" data-opc="cf">---</td>
+</tr>
+<tr>
+	<th scope="row">D‐</th>
+	<td aria-label="$ D0; Sym.: BNE; Instr.: Branch on not equal; Addr.: relative" class="clickable" data-opc="d0">
+		BNE rel</td>
+	<td aria-label="$ D1; Sym.: CMP; Instr.: Compare with accumulator; Addr.: indirect, Y-indexed" class="clickable"
+		data-opc="d1">CMP ind,Y</td>
+	<td class="undef wdcClickable" data-opc="d2">---</td>
+	<td class="undef" data-opc="d3">---</td>
+	<td class="undef" data-opc="d4">---</td>
+	<td aria-label="$ D5; Sym.: CMP; Instr.: Compare with accumulator; Addr.: zero-page, X-indexed" class="clickable"
+		data-opc="d5">CMP zpg,X</td>
+	<td aria-label="$ D6; Sym.: DEC; Instr.: Decrement; Addr.: zero-page, X-indexed" class="clickable" data-opc="d6">DEC
+		zpg,X</td>
+	<td class="undef wdcClickable" data-opc="d7">---</td>
+	<td aria-label="$ D8; Sym.: CLD; Instr.: Clear decimal; Addr.: implied" class="clickable" data-opc="d8">CLD impl
+	</td>
+	<td aria-label="$ D9; Sym.: CMP; Instr.: Compare with accumulator; Addr.: absolute, Y-indexed" class="clickable"
+		data-opc="d9">CMP abs,Y</td>
+	<td class="undef wdcClickable" data-opc="da">---</td>
+	<td class="undef wdcClickable" data-opc="db">---</td>
+	<td class="undef" data-opc="dc">---</td>
+	<td aria-label="$ DD; Sym.: CMP; Instr.: Compare with accumulator; Addr.: absolute, X-indexed" class="clickable"
+		data-opc="dd">CMP abs,X</td>
+	<td aria-label="$ DE; Sym.: DEC; Instr.: Decrement; Addr.: absolute, X-indexed" class="clickable" data-opc="de">
+		DEC abs,X</td>
+	<td class="undef wdcClickable" data-opc="df">---</td>
+</tr>
+<tr>
+	<th scope="row">E‐</th>
+	<td aria-label="$ E0; Sym.: CPX; Instr.: Compare with X; Addr.: immediate" class="clickable" data-opc="e0">CPX #
+	</td>
+	<td aria-label="$ E1; Sym.: SBC; Instr.: Subtract with carry; Addr.: X-indexed, indirect" class="clickable"
+		data-opc="e1">SBC X,ind</td>
+	<td class="undef" data-opc="e2">---</td>
+	<td class="undef" data-opc="e3">---</td>
+	<td aria-label="$ E4; Sym.: CPX; Instr.: Compare with X; Addr.: zero-page" class="clickable" data-opc="e4">CPX
+		zpg</td>
+	<td aria-label="$ E5; Sym.: SBC; Instr.: Subtract with carry; Addr.: zero-page" class="clickable" data-opc="e5">
+		SBC zpg</td>
+	<td aria-label="$ E6; Sym.: INC; Instr.: Increment; Addr.: zero-page" class="clickable" data-opc="e6">INC zpg
+	</td>
+	<td class="undef wdcClickable" data-opc="e7">---</td>
+	<td aria-label="$ E8; Sym.: INX; Instr.: Increment X; Addr.: implied" class="clickable" data-opc="e8">INX impl
+	</td>
+	<td aria-label="$ E9; Sym.: SBC; Instr.: Subtract with carry; Addr.: immediate" class="clickable" data-opc="e9">
+		SBC #</td>
+	<td aria-label="$ EA; Sym.: NOP; Instr.: No operation; Addr.: implied" class="clickable" data-opc="ea">NOP impl
+	</td>
+	<td class="undef" data-opc="eb">---</td>
+	<td aria-label="$ EC; Sym.: CPX; Instr.: Compare with X; Addr.: absolute" class="clickable" data-opc="ec">CPX
+		abs</td>
+	<td aria-label="$ ED; Sym.: SBC; Instr.: Subtract with carry; Addr.: absolute" class="clickable" data-opc="ed">
+		SBC abs</td>
+	<td aria-label="$ EE; Sym.: INC; Instr.: Increment; Addr.: absolute" class="clickable" data-opc="ee">INC abs
+	</td>
+	<td class="undef wdcClickable" data-opc="ef">---</td>
+</tr>
+<tr>
+	<th scope="row">F‐</th>
+	<td aria-label="$ F0; Sym.: BEQ; Instr.: Branch on equal; Addr.: relative" class="clickable" data-opc="f0">BEQ
+		rel</td>
+	<td aria-label="$ F1; Sym.: SBC; Instr.: Subtract with carry; Addr.: indirect, Y-indexed" class="clickable"
+		data-opc="f1">SBC ind,Y</td>
+	<td class="undef wdcClickable" data-opc="f2">---</td>
+	<td class="undef" data-opc="f3">---</td>
+	<td class="undef" data-opc="f4">---</td>
+	<td aria-label="$ F5; Sym.: SBC; Instr.: Subtract with carry; Addr.: zero-page, X-indexed" class="clickable"
+		data-opc="f5">SBC zpg,X</td>
+	<td aria-label="$ F6; Sym.: INC; Instr.: Increment; Addr.: zero-page, X-indexed" class="clickable" data-opc="f6">INC
+		zpg,X</td>
+	<td class="undef wdcClickable" data-opc="f7">---</td>
+	<td aria-label="$ F8; Sym.: SED; Instr.: Set decimal; Addr.: implied" class="clickable" data-opc="f8">SED impl
+	</td>
+	<td aria-label="$ F9; Sym.: SBC; Instr.: Subtract with carry; Addr.: absolute, Y-indexed" class="clickable"
+		data-opc="f9">SBC abs,Y</td>
+	<td class="undef wdcClickable" data-opc="fa">---</td>
+	<td class="undef" data-opc="fb">---</td>
+	<td class="undef" data-opc="fc">---</td>
+	<td aria-label="$ FD; Sym.: SBC; Instr.: Subtract with carry; Addr.: absolute, X-indexed" class="clickable"
+		data-opc="fd">SBC abs,X</td>
+	<td aria-label="$ FE; Sym.: INC; Instr.: Increment; Addr.: absolute, X-indexed" class="clickable" data-opc="fe">
+		INC abs,X</td>
+	<td class="undef wdcClickable" data-opc="ff">---</td>
+</tr>
