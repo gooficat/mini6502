@@ -45,6 +45,7 @@ union ui parse_arith(asblock *bk)
         }
 
         out.i = strtol(n, &eo_n, radix);
+        printf("Val %hi\n", out.i);
     }
     strip_wsp(bk);
     if (bk->c != EOF)
@@ -131,10 +132,58 @@ void encode_ins(asblock *bk, ins i);
 
 void handle_dir(asblock *bk)
 {
-    if (!strcmp(bk->tk, "org"))
+    next_c(bk);
+    get_tk(bk);
+
+    char name[LAB_MAX];
+    strcpy(name, bk->tk);
+
+    strip_wsp(bk);
+    get_tk(bk);
+
+    if (!strcmp(name, "org"))
     {
-        char *eo_tk = bk->tk + bk->tk_len;
-        //
+        bk->off += parse_arith(bk).u;
+        printf("Org %hu\n", bk->off);
+    }
+    else if (!strcmp(name, "align"))
+    {
+        umax n = parse_arith(bk).u;
+        u8 v = parse_arith(bk).u;
+        if (bk->pass == PASS_WRIT)
+        {
+            while (bk->off != n)
+            {
+                fputc(v, bk->out);
+                ++bk->off;
+            }
+        }
+    }
+    else if (!strcmp(name, "defnum"))
+    {
+        strcpy(bk->lb[bk->n_lb], bk->tk);
+        get_tk(bk);
+        bk->lb[bk->n_lb].off = parse_arith(bk).u;
+        bk->n_lb++;
+    }
+    else if (!strcmp(name, "byte"))
+    {
+        u8 val = parse_arith(bk).u;
+        ++bk->off;
+        if (bk->pass == PASS_WRIT)
+        {
+            fputc(val & 0xFF, bk->out);
+        }
+    }
+    else if (!strcmp(name, "dbyte"))
+    {
+        u16 val = parse_arith(bk).u;
+        bk->off += 2;
+        if (bk->pass == PASS_WRIT)
+        {
+            fputc(val & 0xFF, bk->out);
+            fputc((val >> 8) & 0xFF, bk->out);
+        }
     }
 }
 
@@ -167,9 +216,7 @@ void as_pass(asblock *bk)
         }
         else // if (bk->c == '.')
         {
-            next_c(bk);
-            get_tk(bk);
-            printf("directive %s\n", bk->tk);
+            handle_dir(bk);
         }
         // else
         // {

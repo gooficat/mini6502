@@ -6,7 +6,7 @@
 #include <stdlib.h>
 
 #define MAX_LAB 128
-#define LAB_MAX 8
+#define LAB_MAX 16
 #define MAX_ARG 3
 #define TOK_MAX 8
 

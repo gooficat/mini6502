@@ -1,13 +1,10 @@
-.org
+.org 0xe000
 
 :main
-    sei
-    ldx #255
-    txs
-    ldx #0
-    ldy #0
-:delay
-    dex
-    bne $delay
-    dey
-    bne $delay
+    lda #0
+:loop
+    tax
+    inx
+    txa
+    cmp #0xFF
+    bne $loop
