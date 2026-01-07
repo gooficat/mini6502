@@ -1,3 +1,11 @@
 :main
-    lda #6767
-    
+    sei
+    ldx #255
+    txs
+    ldx #0
+    ldy #0
+:delay
+    dex
+    bne $delay
+    dey
+    bne $delay

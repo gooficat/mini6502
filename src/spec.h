@@ -6,7 +6,7 @@
 
 struc(mnem)
 {
-    char name[MNEM_MAX];
+    char name[MNEM_MAX + 1];
     u8 idx;
     u8 num;
 };
@@ -25,7 +25,7 @@ enum
     ADDR_REL,
     ADDR_ZPG,
     ADDR_ZPG_X,
-    ADDR_ZPG_Y,
+    ADDR_ZPG_Y
 };
 
 struc(opc)

@@ -6,22 +6,23 @@
 
 const opc *find_opc(asblock *bk, const ins *i);
 
-const mnem *find_mnem(asblock *bk)
+const mnem *find_mnem(const ins *instr)
 {
     for (u8 i = 0; i != n_mnems; ++i)
     {
-        if (!strcmp(bk->tk, mnems[i].name))
+        if (!strcmp(instr->name, mnems[i].name))
         {
             return &mnems[i];
         }
     }
+    printf("No match for mnem %s", instr->name);
     return NULL;
 }
 
 void encode_ins(asblock *bk, ins i)
 {
     const opc *op = find_opc(bk, &i);
-    printf("matched to code 0x%hhX\n", op->code);
+    printf("matched %s to code 0x%hhX\n", i.name, op->code);
 
     u8 bytes[MAX_INS_BYTES];
     i8 n_bytes = 1;
@@ -49,6 +50,10 @@ void encode_ins(asblock *bk, ins i)
         {
             bytes[n_bytes] = i.args[0].u & 0xFF;
         }
+        ++n_bytes;
+        break;
+    case ADDR_REL:
+        bytes[n_bytes] = (-(bk->off + 2) + i.args[0].i) & 0xFF;
         ++n_bytes;
         break;
     }
@@ -334,7 +339,9 @@ const u8 n_opcs = sizeof(ops) / sizeof(opc);
 
 const opc *find_opc(asblock *bk, const ins *i)
 {
-    for (u8 j = 0; j != n_opcs; ++j)
+    const mnem *mnem = find_mnem(i);
+
+    for (u8 j = mnem->idx; j != mnem->idx + mnem->num; ++j)
     {
         bool match = false;
         switch (ops[j].prof)
@@ -455,9 +462,10 @@ const opc *find_opc(asblock *bk, const ins *i)
             break;
         case ADDR_REL:
         {
-            i16 v = bk->off + 2 - i->args[0].i;
+            i16 v = (-(bk->off + 2) + i->args[0].i);
             if (i->n_args == 1 && i->args[0].type == ARG_MEM)
             {
+                printf("Memory arg at %i, of %i (%i)\n", bk->off, i->args[0].i, v);
                 if (bk->pass == PASS_IMAG || (v < INT8_MAX && v > INT8_MIN))
                 {
                     match = true;
@@ -471,5 +479,6 @@ const opc *find_opc(asblock *bk, const ins *i)
             return &ops[j];
         }
     }
+    fprintf(stderr, "No matching op for %s\n", i->name);
     return NULL;
 }

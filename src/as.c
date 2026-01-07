@@ -57,7 +57,9 @@ void as_pass(asblock *bk)
         }
         else
         {
-            // printf("unknown %c\n", bk->c);
+            next_c(bk);
+            get_tk(bk);
+            printf("directive %s\n", bk->tk);
         }
     }
     bk->pass = next_pass;
@@ -154,7 +156,8 @@ void get_arg(asblock *bk, arg *a)
     }
     else
     {
-        a->u = find_lb(bk);
+        printf("Label arg %s\n", bk->tk);
+        a->u = find_lb(bk)->off;
     }
     while (bk->c == ')')
     {
