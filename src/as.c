@@ -4,6 +4,12 @@ union ui parse_arith(asblock *bk)
 {
     char *n = bk->tk;
     union ui out;
+    if (bk->tk[0] == '(')
+    {
+        next_c(bk);
+        strip_wsp(bk);
+        //
+    }
     if (isalpha(bk->tk[0]))
     {
         out.u = find_lb(bk)->off;
@@ -117,6 +123,7 @@ ins parse_ins(asblock *bk)
         }
         next_c(bk);
     }
+    printf("Instruction ends at %c (%s)\n", bk->c, bk->tk);
     return i;
 }
 
@@ -158,12 +165,17 @@ void as_pass(asblock *bk)
             ins i = parse_ins(bk);
             encode_ins(bk, i);
         }
-        else
+        else // if (bk->c == '.')
         {
             next_c(bk);
             get_tk(bk);
             printf("directive %s\n", bk->tk);
         }
+        // else
+        // {
+        //     printf("Unexpected character %c, followed by %c in %s\n", bk->c, bk->tk);
+        //     exit(EXIT_FAILURE);
+        // }
     }
     bk->pass = next_pass;
 }
@@ -243,7 +255,7 @@ void get_tk(asblock *bk)
 
 void get_arg(asblock *bk, arg *a)
 {
-    while (bk->c == '(')
+    while (bk->c == '[')
     {
         a->dir += BIT(4);
         next_c(bk);
@@ -252,16 +264,9 @@ void get_arg(asblock *bk, arg *a)
     a->type = bk->c;
     next_c(bk);
     get_tk(bk);
-    if (isdigit(bk->tk[0]))
-    {
-        a->i = parse_arith(bk).i;
-    }
-    else
-    {
-        printf("Label arg %s\n", bk->tk);
-        a->u = find_lb(bk)->off;
-    }
-    while (bk->c == ')')
+    printf("Digit %s\n", bk->tk);
+    a->i = parse_arith(bk).i;
+    while (bk->c == ']')
     {
         ++a->dir;
         next_c(bk);
