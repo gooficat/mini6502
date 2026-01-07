@@ -168,11 +168,39 @@ void handle_dir(asblock *bk)
     }
     else if (!strcmp(name, "byte"))
     {
-        u8 val = parse_arith(bk).u;
-        ++bk->off;
-        if (bk->pass == PASS_WRIT)
+        if (bk->c != '"')
         {
-            fputc(val & 0xFF, bk->out);
+            u8 val = parse_arith(bk).u;
+            ++bk->off;
+            if (bk->pass == PASS_WRIT)
+            {
+                fputc(val & 0xFF, bk->out);
+                printf("Put %hhu\n", val);
+            }
+        }
+        else
+        {
+            next_c(bk);
+            if (bk->pass == PASS_WRIT)
+            {
+                while (bk->c != '"')
+                {
+                    fputc(bk->c & 0xFF, bk->out);
+                    printf("Put c '%c'\n", bk->c);
+                    next_c(bk);
+                    ++bk->off;
+                }
+                next_c(bk);
+            }
+            else
+            {
+                while (bk->c != '"')
+                {
+                    next_c(bk);
+                    ++bk->off;
+                }
+                next_c(bk);
+            }
         }
     }
     else if (!strcmp(name, "dbyte"))

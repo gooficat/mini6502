@@ -8,8 +8,8 @@
 
 #define MAX_LAB 128
 #define LAB_MAX 16
-#define MAX_ARG 3
-#define TOK_MAX 8
+#define MAX_ARG 2
+#define TOK_MAX 256
 
 #define BIT(n) (1 << (n))
 #define BHL(a, b) ((a << 4) | (b))

@@ -1,3 +1,5 @@
 .org 0x0c00
+.defnum endl 0xFC62
 
-jsr $0xFC62
+
+:hello .byte "Hello, World!" .byte 0xFF
