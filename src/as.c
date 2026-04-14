@@ -244,9 +244,9 @@ void add_labels(asblock *bk) {
     }
   }
 }
-#define in_arg "C:/Users/User/Documents/c/miniprose/test.ps"
+#define in_arg argv[1]
 // argv[1]
-#define out_arg "C:/Users/User/Documents/c/miniprose/test.bin"
+#define out_arg argv[2]
 // argv[2]
 
 int main(int argc, char *argv[]) {
