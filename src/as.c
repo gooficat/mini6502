@@ -53,7 +53,7 @@ imax comp_arith(asblock *bk);
 imax parse_const(asblock *bk) {
   imax base;
   strip_wsp(bk);
-  printf("Starting base at '%s' '%c', (%ld)\n", bk->tk, bk->c, ftell(bk->in));
+  // printf("Starting base at '%s' '%c', (%ld)\n", bk->tk, bk->c, ftell(bk->in));
 
   if (!bk->tk[0]) {
     if (bk->c == '+') {
@@ -65,7 +65,7 @@ imax parse_const(asblock *bk) {
       get_tk(bk);
       base = -num_tok(bk); // this looks janky imo
     } else if (bk->c == '(') {
-      printf("paren start %c\n", bk->tk[0]);
+      // printf("paren start %c\n", bk->tk[0]);
       next_c(bk);
       strip_wsp(bk);
       base = comp_arith(bk);
@@ -86,14 +86,14 @@ imax parse_const(asblock *bk) {
     strip_wsp(bk);
   } else {
   err:
-    printf("bk is '%c' (at %li), tk is '%s'\n", bk->tk[0], ftell(bk->in),
-           bk->tk);
+    // printf("bk is '%c' (at %li), tk is '%s'\n", bk->tk[0], ftell(bk->in),
+    //        bk->tk);
   }
   return base;
 }
 
 imax comp_arith(asblock *bk) {
-  printf("Parsing constant...\n");
+  // printf("Parsing constant...\n");
   imax base = parse_const(bk);
   while (is_op(bk->c)) {
     char op = bk->c;
@@ -103,7 +103,7 @@ imax comp_arith(asblock *bk) {
     base = char_arith(base, op, operand);
     strip_wsp(bk);
   }
-  printf("Returning %hd, c is %c at %li\n", base, bk->c, ftell(bk->in));
+  // printf("Returning %hd, c is %c at %li\n", base, bk->c, ftell(bk->in));
   return base;
 }
 
@@ -143,7 +143,7 @@ void handle_dir(asblock *bk) {
   get_tk(bk);
 
   if (!strcmp(name, "org")) {
-    printf("Org %s\n", bk->tk);
+    // printf("Org %s\n", bk->tk);
     bk->off = comp_arith(bk);
   } else if (!strcmp(name, "align")) {
     umax n = comp_arith(bk);
@@ -155,28 +155,28 @@ void handle_dir(asblock *bk) {
       }
     }
   } else if (!strcmp(name, "defnum")) {
-    printf("Defnum %s\n", bk->tk);
+    // printf("Defnum %s\n", bk->tk);
     strcpy(bk->lb[bk->n_lb].id, bk->tk);
     strip_wsp(bk);
     get_tk(bk);
-    printf("Defnum %s\n", bk->tk);
+    // printf("Defnum %s\n", bk->tk);
     bk->lb[bk->n_lb].off = comp_arith(bk);
     bk->n_lb++;
   } else if (!strcmp(name, "byte")) {
-    printf("Byte at %s\n", bk->tk);
+    // printf("Byte at %s\n", bk->tk);
     if (bk->c != '"') {
       u8 val = comp_arith(bk);
       ++bk->off;
       if (bk->pass == PASS_WRIT) {
         fputc(val & 0xFF, bk->out);
-        printf("Put %hhu\n", val);
+        // printf("Put %hhu\n", val);
       }
     } else {
       next_c(bk);
       if (bk->pass == PASS_WRIT) {
         while (bk->c != '"') {
           fputc(bk->c & 0xFF, bk->out);
-          printf("Put c '%c'\n", bk->c);
+          // printf("Put c '%c'\n", bk->c);
           next_c(bk);
           ++bk->off;
         }
