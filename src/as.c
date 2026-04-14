@@ -85,7 +85,7 @@ imax parse_const(asblock *bk) {
     base = lb->off;
     strip_wsp(bk);
   } else {
-  err:
+  err:;
     // printf("bk is '%c' (at %li), tk is '%s'\n", bk->tk[0], ftell(bk->in),
     //        bk->tk);
   }
